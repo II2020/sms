@@ -1,5 +1,6 @@
 import React from 'react';
 import { Grid, Row, Col } from 'rsuite';
+import { NavLink } from 'react-router-dom';
 import Card from '../../molecules/Card';
 import Student from '../../../assets/student.png';
 import Academic from '../../../assets/academic.png';
@@ -18,7 +19,9 @@ const HomeScreen = () => {
         <Grid fluid className="grid" style={{ padding: '50px', alignContent: 'center' }}>
             <Row className="show-grid" style={{ padding: '10px', alignContent: 'center' }}>
                 <Col xs={24} sm={24} md={6}>
-                    <Card onClick={() => onClick('student')} text="Student" icon={Student} />
+                    <NavLink to="/student">
+                        <Card onClick={() => onClick('student')} text="Student" icon={Student} />
+                    </NavLink>
                 </Col>
                 <Col xs={24} sm={24} md={6}>
                     <Card onClick={() => onClick('academic')} text="Academic" icon={Academic} />

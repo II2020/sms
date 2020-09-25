@@ -5,6 +5,7 @@ import HeaderComponent from '../components/templates/header/HeaderComponent';
 import FooterComponent from '../components/templates/footer/Footer';
 import Image from '../assets/school.jpg';
 import HomeScreen from '../components/templates/homescreen/HomeScreen';
+import Student from '../pages/student';
 
 function getWindowDimensions() {
     const { innerWidth: width, innerHeight: height } = window;
@@ -46,11 +47,10 @@ const Router = () => {
                 </Route>
                 <Content>
                     <Switch>
-                        <Route path="/">
-                            <HomeScreen />
-                        </Route>
+                        <Route exact path="/" component={HomeScreen} />
+
+                        <Route exact path="/student" component={Student} />
                     </Switch>
-                    {/* <Button size="md" text="Submit" style={buttonStyle} /> */}
                 </Content>
 
                 <FooterComponent />
