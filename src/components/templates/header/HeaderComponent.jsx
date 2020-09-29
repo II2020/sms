@@ -5,6 +5,7 @@ import './Style.scss';
 
 const HeaderComponent = (props) => {
     const [headerStyle] = useState(props.theme);
+
     return (
         <Header>
             <Navbar appearance="inverse" style={{ ...headerStyle }}>

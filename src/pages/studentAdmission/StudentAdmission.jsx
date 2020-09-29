@@ -9,6 +9,7 @@ const StudentAdmission = () => {
     function changeTabs(activeKey) {
         setSteps(activeKey);
     }
+
     return (
         <>
             <Content className="bodyContent">
@@ -32,7 +33,7 @@ const StudentAdmission = () => {
                             <Nav.Item eventKey="step3"> Disabled Item</Nav.Item>
                         </Nav>
                     </Row>
-                    <Row>{steps === 'step1' ? <AddStudentAdmissionForm /> : 'step2'}</Row>
+                    <Row>{steps === 'step1' ? <AddStudentAdmissionForm data={'hello'} /> : 'step2'}</Row>
                 </div>
             </Content>
         </>

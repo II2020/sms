@@ -2,7 +2,7 @@ import React from 'react';
 import { Grid, Row, Col } from 'rsuite';
 import { NavLink } from 'react-router-dom';
 import Card from '../../molecules/Card';
-import Student from '../../../assets/student.png';
+import Student from '../../../assets/happy-students.jpg';
 import Academic from '../../../assets/academic.png';
 import timeTable from '../../../assets/timeTable.png';
 import calander from '../../../assets/calander.png';
