@@ -7,6 +7,8 @@ import HomeScreen from '../components/templates/homescreen/HomeScreen';
 import Student from '../pages/studentAdmission/StudentAdmission';
 import Image from '../assets/bag.jpg';
 import './Style.Layout.scss';
+import PromotionType from '../pages/promotion/Promotion';
+import AllPromotionUI from '../pages/promotion/AllPromotionUI';
 
 function getWindowDimensions() {
     const { innerWidth: width, innerHeight: height } = window;
@@ -50,6 +52,8 @@ const Router = () => {
                     <Switch>
                         <Route exact path="/" component={HomeScreen} />
                         <Route exact path="/student" component={Student} />
+                        <Route exact path="/promotionType" component={PromotionType} />
+                        <Route exact path="/allPromotionUI" component={AllPromotionUI} />
                     </Switch>
                 </Content>
 
