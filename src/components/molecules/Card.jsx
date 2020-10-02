@@ -15,7 +15,7 @@ const Card = (props) => {
                     backgroundImage: `url(${props.icon})`,
                     backgroundRepeat: 'no-repeat',
                     backgroundColor: '#F4F9F6',
-                    backgroundSize: 'cover',
+                    backgroundSize: '150px',
                     backgroundPosition: 'center',
                     width: '100%',
                     borderRadius: '5px',

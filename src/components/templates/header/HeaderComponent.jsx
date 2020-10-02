@@ -10,7 +10,7 @@ const HeaderComponent = (props) => {
         <Header>
             <Navbar appearance="inverse" style={{ ...headerStyle }}>
                 <Navbar.Header className="logo-area">
-                    <p className="logo">SMS</p>
+                    <p className="logo">School Management System</p>
                 </Navbar.Header>
                 <Navbar.Body>
                     <Nav>
