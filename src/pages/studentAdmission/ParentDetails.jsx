@@ -3,7 +3,7 @@ import Button from '../../components/atoms/CustomButton';
 import { Form, FlexboxGrid, Col, DatePicker, Input, Radio, RadioGroup, Row } from 'rsuite';
 import TextField from '../../components/atoms/TextField';
 import SelectPicker from '../../components/atoms/SelectField';
-import './Style.StudentAdmission.scss';
+import './Style.StudentAdmissions.scss';
 
 const ParentForm = () => {
     const [formValue, setFormValue] = useState({

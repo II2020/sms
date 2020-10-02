@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import AddStudentAdmissionForm from './StudentAdmissionForm';
 import ParentForm from './ParentDetails';
 import SisterForm from './SisterDetails';
-
+import './Style.StudentAdmissions.scss';
 import { Steps, Button, message } from 'antd';
 
 const { Step } = Steps;
@@ -24,6 +24,37 @@ const steps = [
     },
 ];
 
+const columns = [
+    {
+        title: 'Name',
+        dataIndex: 'name',
+        key: 'name',
+    },
+    {
+        title: 'Age',
+        dataIndex: 'age',
+        key: 'age',
+    },
+    {
+        title: 'Address',
+        dataIndex: 'address',
+        key: 'address',
+    },
+];
+const dataSource = [
+    {
+        key: '1',
+        name: 'Mike',
+        age: 32,
+        address: '10 Downing Street',
+    },
+    {
+        key: '2',
+        name: 'John',
+        age: 42,
+        address: '10 Downing Street',
+    },
+];
 const StudentAdmission = () => {
     const [step, setStep] = useState(0);
     const [current, setCurrent] = useState(0);

@@ -4,7 +4,7 @@ import TextField from '../../components/atoms/TextField';
 import SelectPicker from '../../components/atoms/SelectField';
 import { IS_EMAIL, IS_NUMBER, IS_REQUIRED } from '../../constants/ValidationMassage';
 import Button from '../../components/atoms/CustomButton';
-import './Style.StudentAdmission.scss';
+import './Style.StudentAdmissions.scss';
 
 const { StringType, NumberType } = Schema.Types;
 
