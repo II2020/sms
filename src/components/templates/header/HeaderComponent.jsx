@@ -28,9 +28,7 @@ const HeaderComponent = (props) => {
                         </Dropdown>
                     </Nav>
                     <Nav pullRight>
-                        <Nav.Item icon={<Icon icon="cog" />}>
-                            <NavLink to="/login">Settings</NavLink>
-                        </Nav.Item>
+                        <Nav.Item icon={<Icon icon="cog" />}>Settings</Nav.Item>
                     </Nav>
                 </Navbar.Body>
             </Navbar>

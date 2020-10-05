@@ -35,7 +35,6 @@ const Router = () => {
 
     return (
         <div className="show-fake-browser navbar-page">
-            <Route exact path="/login" component={Login} />
             <Container
                 style={{
                     backgroundImage: `url(${Image})`,
@@ -53,6 +52,7 @@ const Router = () => {
                         <Route exact path="/" component={HomeScreen} />
 
                         <Route exact path="/student" component={Student} />
+                        {/* <Route exact path="/login" component={Login} /> */}
                     </Switch>
                 </Content>
 
