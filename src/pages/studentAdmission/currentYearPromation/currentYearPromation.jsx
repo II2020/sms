@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Button, FlexboxGrid, Col } from 'rsuite';
-import { Table, Modal, Row, Input } from 'antd';
+import { Button, FlexboxGrid, Row, Col, Modal } from 'rsuite';
+import { Table, Input, Select } from 'antd';
 import { EditTwoTone } from '@ant-design/icons';
 const CurrentYearPromation = () => {
     const rowSelection = {
@@ -9,7 +9,9 @@ const CurrentYearPromation = () => {
             disabled: record.status === 'PROMOTED',
         }),
     };
-    const [visible] = useState(false);
+    const [grade, setGrade] = useState('');
+    const [status, setStatus] = useState('');
+    const [visible, setVisible] = useState(false);
     const [selectionType] = useState(false);
     const columns = [
         {
@@ -30,14 +32,11 @@ const CurrentYearPromation = () => {
             title: 'Edit & Delete',
             key: 'action',
             width: '12%',
-            render: (text, record) =>
-                record.status === 'PENDING' ? (
-                    ''
-                ) : (
-                    <span>
-                        <EditTwoTone onClick={''} />
-                    </span>
-                ),
+            render: (text, record = data) => (
+                <span>
+                    <EditTwoTone onClick={() => showModel(record)} />
+                </span>
+            ),
         },
     ];
 
@@ -103,13 +102,30 @@ const CurrentYearPromation = () => {
             status: 'PROMOTED',
         },
     ]);
+    const showModel = (record) => {
+        setGrade(record.grade);
+        setStatus(record.status);
+        setVisible(true);
+    };
+    const showModelClose = () => {
+        setVisible(false);
+    };
+    const handleSelect = (value) => {
+        setStatus(value);
+    };
 
     return (
         <>
             <FlexboxGrid justify="center" borderRadius="20px">
                 <FlexboxGrid.Item componentClass={Col} colspan={54} md={18}>
+                    <h3 style={{ color: 'white' }}>Current Year Promation</h3>
+                </FlexboxGrid.Item>
+            </FlexboxGrid>
+            <FlexboxGrid justify="center" borderRadius="20px">
+                <FlexboxGrid.Item componentClass={Col} colspan={54} md={18}>
                     <Table
                         columns={columns}
+                        tittle={'cu'}
                         dataSource={data}
                         footer={() => <Button appearance="primary">Promote</Button>}
                         rowSelection={{
@@ -117,34 +133,61 @@ const CurrentYearPromation = () => {
                             ...rowSelection,
                         }}
                         pagination={{
-                            defaultPageSize: 6,
+                            defaultPageSize: 5,
                         }}
                         scroll={{ y: 500 }}
                     ></Table>
                 </FlexboxGrid.Item>
             </FlexboxGrid>
-            <Modal
-                width="450px"
-                className="addsubcategorymodal"
-                visible={visible}
-                closable={true}
-                footer={[
-                    <Button key="back" onClick={''}>
-                        Return
-                    </Button>,
-                ]}
-            >
-                <Row style={{ width: '100%' }}>
-                    <Col span={12}>
-                        <div className="input_wrapper">
-                            <label htmlFor="status" className="label">
-                                Test Name
-                            </label>
-                            <Input id="code" name="code" style={{ width: '100%' }} />
-                            <div style={{ height: '22px' }} />
-                        </div>
-                    </Col>
-                </Row>
+
+            <Modal show={visible} style={{ width: '60%' }}>
+                <Modal.Header>
+                    <Modal.Title>Edit Current Year Promation</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <Row style={{ width: '100%' }}>
+                        <Col md={12}>
+                            <div className="input_wrapper">
+                                <label htmlFor="grade" className="label">
+                                    Grade:
+                                </label>
+                                <Input id="grade" name="grade" style={{ width: '50%' }} value={grade} disabled />
+                                <div style={{ height: '22px' }} />
+                            </div>
+                        </Col>
+                        <Col md={12}>
+                            <div className="input_wrapper">
+                                <label htmlFor="status" className="label">
+                                    Status:
+                                </label>
+                                <Select
+                                    id="status"
+                                    name="status"
+                                    placeholder="Select "
+                                    value={status}
+                                    width="75"
+                                    onChange={handleSelect}
+                                >
+                                    <Select.Option key="1" value="PENDING">
+                                        PENDING
+                                    </Select.Option>
+                                    <Select.Option key="2" value="PROMOTED">
+                                        PROMOTED
+                                    </Select.Option>
+                                </Select>
+                                <div style={{ height: '22px' }} />
+                            </div>
+                        </Col>
+                    </Row>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button onClick={showModelClose} appearance="primary">
+                        Promote
+                    </Button>
+                    <Button onClick={showModelClose} appearance="subtle">
+                        Cancel
+                    </Button>
+                </Modal.Footer>
             </Modal>
         </>
     );
