@@ -140,7 +140,7 @@ const CurrentYearPromation = () => {
                 </FlexboxGrid.Item>
             </FlexboxGrid>
 
-            <Modal show={visible} style={{ width: '60%' }}>
+            <Modal show={visible} style={({ width: '60%' }, { centered: true })}>
                 <Modal.Header>
                     <Modal.Title>Edit Current Year Promation</Modal.Title>
                 </Modal.Header>
