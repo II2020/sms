@@ -1,52 +1,35 @@
 import React, { useState } from 'react';
-import { Content, Row, Breadcrumb, Col, Nav } from 'rsuite';
-import Table from '../../components/molecules/CustomTable';
+import { Content, Row, Breadcrumb, Col, Nav, FlexboxGrid } from 'rsuite';
+import GradeWiseFillter from '../../components/templates/fillter/GradeWiseFillter';
 import { NavLink } from 'react-router-dom';
-
+import { grade } from '../../constants/MockData';
+import { Space } from 'antd';
 import './Style.StudentAdmissions.scss';
-const columns = [
-    {
-        title: 'Name',
-        dataIndex: 'name',
-        key: 'name',
-    },
-    {
-        title: 'Age',
-        dataIndex: 'age',
-        key: 'age',
-    },
-    {
-        title: 'Address',
-        dataIndex: 'address',
-        key: 'address',
-    },
-];
-const dataSource = [
-    {
-        key: '1',
-        name: 'Mike',
-        age: 32,
-        address: '10t',
-    },
-    {
-        key: '2',
-        name: 'John',
-        age: 42,
-        address: '10 Downing Street',
-    },
-];
+
 const StudentAdmission = () => {
     const [steps, setSteps] = useState('step1');
+    const [selectedId, setSelectedId] = useState('');
+    const [selectedDivisionId, setSelectedDivisionId] = useState('');
+    const [divisions, setDivisions] = useState([]);
     function changeTabs(activeKey) {
         setSteps(activeKey);
     }
+    const onClickGrade = (gradeId, division) => {
+        console.log(gradeId, division);
+        setSelectedId(gradeId);
+        setDivisions(division);
+    };
 
+    const onClickDivision = (divisionId, division) => {
+        console.log(divisionId, division);
+        setSelectedDivisionId(divisionId);
+    };
     return (
         <>
             <Content>
                 <div>
                     <Row>
-                        <Col xs={24} sm={24} md={4}>
+                        <Col md={4}>
                             <Breadcrumb className="breadcrumb">
                                 <NavLink to="/">
                                     <>Home</>
@@ -57,19 +40,13 @@ const StudentAdmission = () => {
                             </Breadcrumb>
                         </Col>
                     </Row>
-                    <Row className="bodyContent">
-                        <Nav appearance="tabs" onSelect={changeTabs}>
-                            <Nav.Item eventKey="step1">Default Item</Nav.Item>
-                            <Nav.Item eventKey="step2">Active Item</Nav.Item>
-                            <Nav.Item eventKey="step3"> Disabled Item</Nav.Item>
-                        </Nav>
-                    </Row>
+
                     <Row>
                         {steps === 'step1' ? (
-                            <Table
-                                columns={columns}
-                                dataSource={dataSource}
-                                title={<p style={{ backgroundColor: 'red' }}> title</p>}
+                            <GradeWiseFillter
+                                grade={grade}
+                                onClickGrade={onClickGrade}
+                                onClickDivision={onClickDivision}
                             />
                         ) : (
                             'step2'
