@@ -1,18 +1,17 @@
 .breadcrumb {
     display: flex;
     flex-direction: row;
-    // margin-right: 30px;
-    // justify-content: a;
-    // text-align: left;
     width: 99.6%;
+    justify-content: space-around;
 }
 .bodyContent {
     background-color: azure;
-    width: 95%;
-    align-content: center;
-    padding: 10px;
+    width: 100%;
+    border-radius: 10px;
 }
-
+.form {
+    padding: 5px;
+}
 .field {
     width: 100%;
 }

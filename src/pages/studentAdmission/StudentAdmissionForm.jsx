@@ -2,20 +2,31 @@ import React, { useState } from 'react';
 import { Schema, Form, FlexboxGrid, Col, DatePicker, Input, Radio, RadioGroup } from 'rsuite';
 import TextField from '../../components/atoms/TextField';
 import SelectPicker from '../../components/atoms/SelectField';
-import { IS_EMAIL, IS_NUMBER, IS_REQUIRED } from '../../constants/ValidationMassage';
+import { IS_REQUIRED } from '../../constants/ValidationMassage';
 import Button from '../../components/atoms/CustomButton';
 import './Style.StudentAdmissions.scss';
 
-const { StringType, NumberType } = Schema.Types;
+const { StringType } = Schema.Types;
 
 const model = Schema.Model({
-    name: StringType().isRequired(IS_REQUIRED),
-    email: StringType()
-        .isEmail(IS_EMAIL)
-        .isRequired(IS_REQUIRED),
-    age: NumberType(IS_NUMBER),
-    password: StringType().isRequired(IS_REQUIRED),
-    verifyPassword: StringType().isRequired(IS_REQUIRED),
+    admissionNo: StringType().isRequired(IS_REQUIRED),
+    firstName: StringType().isRequired(IS_REQUIRED),
+    middleName: StringType().isRequired(IS_REQUIRED),
+    lastName: StringType().isRequired(IS_REQUIRED),
+    admissionDate: StringType().isRequired(IS_REQUIRED),
+    address: StringType().isRequired(IS_REQUIRED),
+    telephoneNo: StringType().isRequired(IS_REQUIRED),
+    gsDivisionNo: StringType().isRequired(IS_REQUIRED),
+    distance: StringType().isRequired(IS_REQUIRED),
+    dateOfBirth: StringType().isRequired(IS_REQUIRED),
+    religion: StringType().isRequired(IS_REQUIRED),
+    race: StringType().isRequired(IS_REQUIRED),
+    formerSchool: StringType().isRequired(IS_REQUIRED),
+    distinctionInStudies: StringType().isRequired(IS_REQUIRED),
+    distinctionInSports: StringType().isRequired(IS_REQUIRED),
+    pupilSeeksAdmission: StringType().isRequired(IS_REQUIRED),
+    classApplicant: StringType().isRequired(IS_REQUIRED),
+    admissionToHostel: StringType().isRequired(IS_REQUIRED),
 });
 
 const StudentAdmissionForm = () => {
@@ -53,6 +64,7 @@ const StudentAdmissionForm = () => {
     return (
         <div className="bodyContent">
             <Form
+                className="form"
                 ref={ref => setForm(ref)}
                 onChange={formValue => {
                     setFormValue(formValue);
@@ -66,36 +78,16 @@ const StudentAdmissionForm = () => {
                 <div className="show-grid">
                     <FlexboxGrid justify="start">
                         <FlexboxGrid.Item componentClass={Col} colspan={24} md={6}>
-                            <TextField
-                                className="field"
-                                name="admissionNo"
-                                // placeholder="Enter Admission No"
-                                label="Admission No"
-                            />
+                            <TextField className="field" name="admissionNo" label="Admission No" />
                         </FlexboxGrid.Item>
                         <FlexboxGrid.Item componentClass={Col} colspan={24} md={6}>
-                            <TextField
-                                className="field"
-                                name="firstName"
-                                // placeholder="Enter First Name"
-                                label="First Name"
-                            />
+                            <TextField className="field" name="firstName" label="First Name" />
                         </FlexboxGrid.Item>
                         <FlexboxGrid.Item componentClass={Col} colspan={24} md={6}>
-                            <TextField
-                                className="field"
-                                name="middleName"
-                                // placeholder="Enter Middle Name"
-                                label="Middle Name"
-                            />
+                            <TextField className="field" name="middleName" label="Middle Name" />
                         </FlexboxGrid.Item>
                         <FlexboxGrid.Item componentClass={Col} colspan={24} md={6}>
-                            <TextField
-                                className="field"
-                                name="lastName"
-                                // placeholder="Enter Last Name"
-                                label="Last Name"
-                            />
+                            <TextField className="field" name="lastName" label="Last Name" />
                         </FlexboxGrid.Item>
                         <FlexboxGrid.Item componentClass={Col} colspan={24} md={6}>
                             <p className="textArea">Admission Date</p>
@@ -103,7 +95,6 @@ const StudentAdmissionForm = () => {
                                 className="field"
                                 name="admissionDate"
                                 appearance="default"
-                                // placeholder="Enter Admission Date"
                                 style={{ width: '95%' }}
                             />
                         </FlexboxGrid.Item>
@@ -111,44 +102,20 @@ const StudentAdmissionForm = () => {
                             <TextField className="field" name="address" label="Address" />
                         </FlexboxGrid.Item>
                         <FlexboxGrid.Item componentClass={Col} colspan={24} md={6}>
-                            <TextField
-                                className="field"
-                                name="telephoneNo"
-                                // placeholder="Enter Phone Number"
-                                label="Telephone No"
-                            />
+                            <TextField className="field" name="telephoneNo" label="Telephone No" />
                         </FlexboxGrid.Item>
                         <FlexboxGrid.Item componentClass={Col} colspan={24} md={6}>
-                            <TextField
-                                className="field"
-                                name="gsDivisionNo"
-                                // placeholder="Enter G.S Divison No"
-                                label="G.S Division No"
-                            />
+                            <TextField className="field" name="gsDivisionNo" label="G.S Division No" />
                         </FlexboxGrid.Item>
                         <FlexboxGrid.Item componentClass={Col} colspan={24} md={6}>
-                            <TextField
-                                name="distance"
-                                // placeholder="Enter Distance"
-                                label="Distance from Place of Stay to School"
-                            />
+                            <TextField name="distance" label="Distance from Place of Stay to School" />
                         </FlexboxGrid.Item>
                         <FlexboxGrid.Item componentClass={Col} colspan={24} md={6}>
                             <p className="textArea">Date of Birth</p>
-                            <DatePicker
-                                name="dateOfBirth"
-                                appearance="default"
-                                // placeholder="Enter Date of Birth"
-                                style={{ width: '95%' }}
-                            />
+                            <DatePicker name="dateOfBirth" appearance="default" style={{ width: '95%' }} />
                         </FlexboxGrid.Item>
                         <FlexboxGrid.Item componentClass={Col} colspan={24} md={6}>
-                            <SelectPicker
-                                className="field"
-                                name="religion"
-                                // placeholder="Select the Religion"
-                                label="Religion"
-                            />
+                            <SelectPicker className="field" name="religion" label="Religion" />
                         </FlexboxGrid.Item>
                         <FlexboxGrid.Item componentClass={Col} colspan={24} md={6}>
                             <SelectPicker className="field" name="race" label="Race" />
@@ -157,7 +124,6 @@ const StudentAdmissionForm = () => {
                             <SelectPicker
                                 className="field"
                                 name="pupilSeeksAdmission"
-                                // placeholder="Select the Pupil Seek Admission"
                                 label="Class to which Pupil seeks Admission"
                             />
                         </FlexboxGrid.Item>
@@ -165,17 +131,11 @@ const StudentAdmissionForm = () => {
                             <SelectPicker
                                 className="field"
                                 name="classApplicant"
-                                // placeholder="Select the Class Applicant"
                                 label="Class the Applicant in now is"
                             />
                         </FlexboxGrid.Item>
                         <FlexboxGrid.Item componentClass={Col} colspan={24} md={6}>
-                            <TextField
-                                className="field"
-                                name="formerSchool"
-                                // placeholder="Enter Former School Name"
-                                label="Former School"
-                            />
+                            <TextField className="field" name="formerSchool" label="Former School" />
                         </FlexboxGrid.Item>
                         <FlexboxGrid.Item componentClass={Col} colspan={24} md={6}>
                             <p className="textArea">In the Applicant seeking admission to Hostel</p>
@@ -196,7 +156,6 @@ const StudentAdmissionForm = () => {
                                 name="distinctionInStudies"
                                 rows={3}
                                 style={{ width: '100%' }}
-                                // placeholder="Enter any Distinction in Studies"
                             />
                         </FlexboxGrid.Item>
                         <FlexboxGrid.Item componentClass={Col} colspan={48} md={12}>
@@ -207,7 +166,6 @@ const StudentAdmissionForm = () => {
                                 name="distinctionInSports"
                                 rows={3}
                                 style={{ width: '100%' }}
-                                // placeholder="Enter any Distinction in Sports"
                             />
                         </FlexboxGrid.Item>
                     </FlexboxGrid>

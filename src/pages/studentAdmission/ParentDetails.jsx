@@ -1,9 +1,36 @@
 import React, { useState } from 'react';
 import Button from '../../components/atoms/CustomButton';
-import { Form, FlexboxGrid, Col, DatePicker, Input, Radio, RadioGroup, Row } from 'rsuite';
+import { Schema, Form, FlexboxGrid, Col, DatePicker, Input, Radio, RadioGroup, Row } from 'rsuite';
 import TextField from '../../components/atoms/TextField';
 import SelectPicker from '../../components/atoms/SelectField';
+import { IS_REQUIRED } from '../../constants/ValidationMassage';
 import './Style.StudentAdmissions.scss';
+
+const { StringType } = Schema.Types;
+
+const model = Schema.Model({
+    fatherName: StringType().isRequired(IS_REQUIRED),
+    fatherOccupation: StringType().isRequired(IS_REQUIRED),
+    fatherOfficalAddress: StringType().isRequired(IS_REQUIRED),
+    fatherPhoneNo: StringType().isRequired(IS_REQUIRED),
+    fatherEmail: StringType().isEmail(IS_REQUIRED),
+    motherName: StringType().isRequired(IS_REQUIRED),
+    motherOccupation: StringType().isRequired(IS_REQUIRED),
+    motherOfficalAddress: StringType().isRequired(IS_REQUIRED),
+    motherEmail: StringType().isRequired(IS_REQUIRED),
+    motherPhoneNo: StringType().isRequired(IS_REQUIRED),
+    motherAnOldGirl: StringType().isRequired(IS_REQUIRED),
+    guardian: StringType().isRequired(IS_REQUIRED),
+    guardianName: StringType().isRequired(IS_REQUIRED),
+    guardianOccupation: StringType().isRequired(IS_REQUIRED),
+    guardianAddress: StringType().isRequired(IS_REQUIRED),
+    guardianTelephoneNo: StringType().isRequired(IS_REQUIRED),
+    guardianEmail: StringType().isRequired(IS_REQUIRED),
+    ifMotherAnOldGirl: StringType().isRequired(IS_REQUIRED),
+    maidenName: StringType().isRequired(IS_REQUIRED),
+    periodInSchool: StringType().isRequired(IS_REQUIRED),
+    house: StringType().isRequired(IS_REQUIRED),
+});
 
 const ParentForm = () => {
     const [formValue, setFormValue] = useState({
@@ -41,42 +68,33 @@ const ParentForm = () => {
     return (
         <div className="bodyContent">
             <br></br>
-            <Form>
+            <Form
+                className="form"
+                ref={ref => setForm(ref)}
+                onChange={formValue => {
+                    setFormValue(formValue);
+                }}
+                onCheck={formError => {
+                    setFormError(formError);
+                }}
+                formValue={formValue}
+                model={model}
+            >
                 <div className="show-grid">
                     <Row>
                         <Col md={12}>
                             <FlexboxGrid justify="start">
                                 <FlexboxGrid.Item componentClass={Col} colspan={24} md={12}>
-                                    <TextField
-                                        className="field"
-                                        name="fatherName"
-                                        // placeholder="Enter Father Name"
-                                        label="Name of Father"
-                                    />
+                                    <TextField className="field" name="fatherName" label="Name of Father" />
                                 </FlexboxGrid.Item>
                                 <FlexboxGrid.Item componentClass={Col} colspan={24} md={12}>
-                                    <TextField
-                                        className="field"
-                                        name="fatherOccupation"
-                                        // placeholder="Enter Father Occupation"
-                                        label="Father Occupation"
-                                    />
+                                    <TextField className="field" name="fatherOccupation" label="Father Occupation" />
                                 </FlexboxGrid.Item>
                                 <FlexboxGrid.Item componentClass={Col} colspan={24} md={12}>
-                                    <TextField
-                                        className="field"
-                                        name="fatherPhoneNo"
-                                        // placeholder="Enter Telephone No"
-                                        label="Father Telephone No"
-                                    />
+                                    <TextField className="field" name="fatherPhoneNo" label="Father Telephone No" />
                                 </FlexboxGrid.Item>
                                 <FlexboxGrid.Item componentClass={Col} colspan={24} md={12}>
-                                    <TextField
-                                        className="field"
-                                        name="fatherEmail"
-                                        // placeholder="Enter Email"
-                                        label="Father Email"
-                                    />
+                                    <TextField className="field" name="fatherEmail" label="Father Email" />
                                 </FlexboxGrid.Item>
                                 <FlexboxGrid.Item componentClass={Col} colspan={48} md={24}>
                                     <p className="textArea">Father Offical Address</p>
@@ -86,92 +104,49 @@ const ParentForm = () => {
                                         name="fatherOfficalAddress"
                                         rows={3}
                                         style={{ width: '99%' }}
-                                        // placeholder="Enter Address"
                                     />
                                 </FlexboxGrid.Item>
                                 <FlexboxGrid.Item componentClass={Col} colspan={24} md={12}>
-                                    <SelectPicker
-                                        className="field"
-                                        name="guardian"
-                                        // placeholder="Select the Class Applicant"
-                                        label="Guardian"
-                                    />
+                                    <SelectPicker className="field" name="guardian" label="Guardian" />
                                 </FlexboxGrid.Item>
                                 <FlexboxGrid.Item componentClass={Col} colspan={24} md={12}>
-                                    <TextField
-                                        className="field"
-                                        name="guardianName"
-                                        // placeholder="Enter Guardian Name"
-                                        label="Name of Guardian"
-                                    />
+                                    <TextField className="field" name="guardianName" label="Name of Guardian" />
                                 </FlexboxGrid.Item>
                                 <FlexboxGrid.Item componentClass={Col} colspan={24} md={12}>
                                     <TextField
                                         className="field"
                                         name="guardianOccupation"
-                                        // placeholder="Enter Occupation"
                                         label="Guardian Occupation"
                                     />
                                 </FlexboxGrid.Item>
                                 <FlexboxGrid.Item componentClass={Col} colspan={24} md={12}>
-                                    <TextField
-                                        className="field"
-                                        name="guardianAddress"
-                                        // placeholder="Enter Address"
-                                        label="Guardian Address"
-                                    />
+                                    <TextField className="field" name="guardianAddress" label="Guardian Address" />
                                 </FlexboxGrid.Item>
                                 <FlexboxGrid.Item componentClass={Col} colspan={24} md={12}>
                                     <TextField
                                         className="field"
                                         name="guardianTelephoneNo"
-                                        // placeholder="Enter Telephone No"
                                         label="Guardian Telephone No"
                                     />
                                 </FlexboxGrid.Item>
                                 <FlexboxGrid.Item componentClass={Col} colspan={24} md={12}>
-                                    <TextField
-                                        className="field"
-                                        name="guardianEmail"
-                                        // placeholder="Enter Email"
-                                        label="Guardian Email"
-                                    />
+                                    <TextField className="field" name="guardianEmail" label="Guardian Email" />
                                 </FlexboxGrid.Item>
                             </FlexboxGrid>
                         </Col>
                         <Col md={12}>
                             <FlexboxGrid justify="start">
                                 <FlexboxGrid.Item componentClass={Col} colspan={24} md={12}>
-                                    <TextField
-                                        className="field"
-                                        name="motherName"
-                                        // placeholder="Enter Mother Name"
-                                        label="Name of Mother"
-                                    />
+                                    <TextField className="field" name="motherName" label="Name of Mother" />
                                 </FlexboxGrid.Item>
                                 <FlexboxGrid.Item componentClass={Col} colspan={24} md={12}>
-                                    <TextField
-                                        className="field"
-                                        name="motherOccupation"
-                                        // placeholder="Enter Mother Occupation"
-                                        label="Mother Occupation"
-                                    />
+                                    <TextField className="field" name="motherOccupation" label="Mother Occupation" />
                                 </FlexboxGrid.Item>
                                 <FlexboxGrid.Item componentClass={Col} colspan={24} md={12}>
-                                    <TextField
-                                        className="field"
-                                        name="motherPhoneNo"
-                                        // placeholder="Enter Telephone No"
-                                        label="Mother Telephone No"
-                                    />
+                                    <TextField className="field" name="motherPhoneNo" label="Mother Telephone No" />
                                 </FlexboxGrid.Item>
                                 <FlexboxGrid.Item componentClass={Col} colspan={24} md={12}>
-                                    <TextField
-                                        className="field"
-                                        name="motherEmail"
-                                        // placeholder="Enter Email"
-                                        label="Mother Email"
-                                    />
+                                    <TextField className="field" name="motherEmail" label="Mother Email" />
                                 </FlexboxGrid.Item>
                                 <FlexboxGrid.Item componentClass={Col} colspan={48} md={24}>
                                     <p className="textArea">Mother Offical Address</p>
@@ -181,7 +156,6 @@ const ParentForm = () => {
                                         name="motherOfficalAddress"
                                         rows={3}
                                         style={{ width: '99%' }}
-                                        // placeholder="Enter Address"
                                     />
                                 </FlexboxGrid.Item>
                                 <FlexboxGrid.Item componentClass={Col} colspan={24} md={12}>
@@ -196,12 +170,7 @@ const ParentForm = () => {
                                     </RadioGroup>
                                 </FlexboxGrid.Item>
                                 <FlexboxGrid.Item componentClass={Col} colspan={24} md={12}>
-                                    <TextField
-                                        className="field"
-                                        name="house"
-                                        // placeholder="Enter House"
-                                        label="House"
-                                    />
+                                    <TextField className="field" name="house" label="House" />
                                 </FlexboxGrid.Item>
                                 <FlexboxGrid.Item componentClass={Col} colspan={24} md={24}>
                                     <p className="textArea">Period in School</p>

@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { Content, Row, Breadcrumb, Col } from 'rsuite';
-import { NavLink } from 'react-router-dom';
 import AddStudentAdmissionForm from './StudentAdmissionForm';
 import ParentForm from './ParentDetails';
 import SisterForm from './SisterDetails';
@@ -11,56 +9,21 @@ const { Step } = Steps;
 
 const steps = [
     {
-        title: 'First',
+        title: "Student's Details",
         content: <AddStudentAdmissionForm />,
     },
     {
-        title: 'Second',
+        title: "Parent's Details",
         content: <ParentForm />,
     },
     {
-        title: 'Last',
+        title: "Sister's Details",
         content: <SisterForm />,
     },
 ];
 
-const columns = [
-    {
-        title: 'Name',
-        dataIndex: 'name',
-        key: 'name',
-    },
-    {
-        title: 'Age',
-        dataIndex: 'age',
-        key: 'age',
-    },
-    {
-        title: 'Address',
-        dataIndex: 'address',
-        key: 'address',
-    },
-];
-const dataSource = [
-    {
-        key: '1',
-        name: 'Mike',
-        age: 32,
-        address: '10 Downing Street',
-    },
-    {
-        key: '2',
-        name: 'John',
-        age: 42,
-        address: '10 Downing Street',
-    },
-];
 const StudentAdmission = () => {
-    const [step, setStep] = useState(0);
     const [current, setCurrent] = useState(0);
-    const onChange = nextStep => {
-        setStep(nextStep < 0 ? 0 : nextStep > 2 ? 2 : nextStep);
-    };
 
     const next = () => {
         const currentNo = current + 1;
@@ -73,12 +36,14 @@ const StudentAdmission = () => {
     };
     return (
         <>
-            <Steps current={current}>
+            <Steps current={current} style={{ margin: 'auto', width: '80%', padding: '10px' }}>
                 {steps.map(item => (
                     <Step key={item.title} title={item.title} />
                 ))}
             </Steps>
-            <div className="steps-content">{steps[current].content}</div>
+            <div className="steps-content" style={{ margin: 'auto', width: '97%', padding: '10px' }}>
+                {steps[current].content}
+            </div>
             <div className="steps-action">
                 {current < steps.length - 1 && (
                     <Button type="primary" onClick={() => next()}>
