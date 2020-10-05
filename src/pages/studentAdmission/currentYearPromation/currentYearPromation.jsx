@@ -2,21 +2,15 @@ import React, { useState } from 'react';
 import { Button, FlexboxGrid, Col } from 'rsuite';
 import { Table, Modal, Row, Input } from 'antd';
 import { EditTwoTone } from '@ant-design/icons';
-const style = {
-    alignContent: 'center',
-    padding: '10px',
-};
 const CurrentYearPromation = () => {
     const rowSelection = {
-        onChange: (selectedRowKeys, selectedRows) => {
-            console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
-        },
+        onChange: (selectedRowKeys, selectedRows) => {},
         getCheckboxProps: (record) => ({
             disabled: record.status === 'PROMOTED',
         }),
     };
-    const [visible, setVisible] = useState(false);
-    const [selectionType, setSelectionType] = useState(false);
+    const [visible] = useState(false);
+    const [selectionType] = useState(false);
     const columns = [
         {
             title: 'Grade',
@@ -47,7 +41,7 @@ const CurrentYearPromation = () => {
         },
     ];
 
-    const [data, SetData] = useState([
+    const [data] = useState([
         {
             key: 1,
             grade: 1,
