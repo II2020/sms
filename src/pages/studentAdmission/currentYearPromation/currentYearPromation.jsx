@@ -12,8 +12,7 @@ const CurrentYearPromation = () => {
             console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
         },
         getCheckboxProps: (record) => ({
-            disabled: record.status === 'PROMOTED', // Column configuration not to be checked
-            // name: record.name,
+            disabled: record.status === 'PROMOTED',
         }),
     };
     const [visible, setVisible] = useState(false);
@@ -135,24 +134,10 @@ const CurrentYearPromation = () => {
                 className="addsubcategorymodal"
                 visible={visible}
                 closable={true}
-                //  onOk={this.handleOk}
-                //  onCancel={this.handleCancel}
                 footer={[
                     <Button key="back" onClick={''}>
                         Return
                     </Button>,
-                    // <PrimaryButton
-                    //     type={'primary'}
-                    //     primary
-                    //     style={{
-                    //         // color: theme.colors.white,
-                    //         border: 'none',
-                    //         marginTop: '20px',
-                    //     }}
-                    //     onClick={this.handleSubmitEdit}
-                    // >
-                    //     Submit
-                    // </PrimaryButton>,
                 ]}
             >
                 <Row style={{ width: '100%' }}>
