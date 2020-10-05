@@ -20,7 +20,6 @@ const Login = () => {
                         <label for="password">Password</label>
                         <TextField className="inputfield" name="name" />
                     </div>
-
                     <Button className="button" appearance="primary" type="submit">
                         Login
                     </Button>
