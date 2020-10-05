@@ -30,7 +30,7 @@ function useWindowDimensions() {
 
     return windowDimensions;
 }
-const Router = () => {
+const Router = (props) => {
     const { height } = useWindowDimensions();
 
     return (
@@ -44,19 +44,15 @@ const Router = () => {
                     height: height,
                 }}
             >
-                <Route path="/">
-                    <HeaderComponent />
-                </Route>
+                {props.location.pathname !== '/login' ? <HeaderComponent path="/" /> : ''}
                 <Content>
                     <Switch>
                         <Route exact path="/" component={HomeScreen} />
-
                         <Route exact path="/student" component={Student} />
-                        {/* <Route exact path="/login" component={Login} /> */}
+                        <Route exact path="/login" component={Login} />
                     </Switch>
                 </Content>
-
-                <FooterComponent />
+                {props.location.pathname !== '/login' ? <FooterComponent /> : ''}
             </Container>
         </div>
     );
