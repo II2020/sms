@@ -7,6 +7,7 @@ import HomeScreen from '../components/templates/homescreen/HomeScreen';
 import Student from '../pages/studentAdmission/StudentAdmission';
 import Image from '../assets/bag.jpg';
 import './Style.Layout.scss';
+import Promation from '../pages/studentAdmission/currentYearPromation/currentYearPromation';
 
 function getWindowDimensions() {
     const { innerWidth: width, innerHeight: height } = window;
@@ -50,6 +51,7 @@ const Router = () => {
                     <Switch>
                         <Route exact path="/" component={HomeScreen} />
                         <Route exact path="/student" component={Student} />
+                        <Route exact path="/academic" component={Promation} />
                     </Switch>
                 </Content>
 
