@@ -40,7 +40,9 @@ const HomeScreen = () => {
                     <Card onClick={() => onClick('examResult')} text="Examination" icon={examResult} />
                 </Col>
                 <Col xs={24} sm={24} md={6}>
-                    <Card onClick={() => onClick('library')} text="Library" icon={library} />
+                    <NavLink to="/library">
+                        <Card onClick={() => onClick('library')} text="Library" icon={library} />
+                    </NavLink>
                 </Col>
                 <Col xs={24} sm={24} md={6}>
                     <Card onClick={() => onClick('inventory')} text="Inventory" icon={inventory} />

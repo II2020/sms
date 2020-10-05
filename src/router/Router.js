@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { Container, Content } from 'rsuite';
 import HeaderComponent from '../components/templates/header/HeaderComponent';
@@ -8,30 +8,7 @@ import Student from '../pages/studentAdmission/StudentAdmission';
 import Image from '../assets/bag.jpg';
 import './Style.Layout.scss';
 
-function getWindowDimensions() {
-    const { innerWidth: width, innerHeight: height } = window;
-    return {
-        width,
-        height,
-    };
-}
-function useWindowDimensions() {
-    const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
-
-    useEffect(() => {
-        function handleResize() {
-            setWindowDimensions(getWindowDimensions());
-        }
-
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
-
-    return windowDimensions;
-}
 const Router = () => {
-    const { height } = useWindowDimensions();
-
     return (
         <div className="show-fake-browser navbar-page">
             <Container
@@ -40,7 +17,7 @@ const Router = () => {
                     backgroundPosition: 'center',
                     backgroundSize: 'cover',
                     backgroundRepeat: 'no-repeat',
-                    height: height,
+                    height: '680px',
                 }}
             >
                 <Route path="/">

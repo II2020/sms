@@ -18,7 +18,7 @@ const defaultProps = {
     loading: false,
     appearance: 'primary',
 };
-const CustomButton = (props) => {
+const CustomButton = props => {
     const [buttonStyle] = useState(props.theme);
 
     return (
@@ -41,7 +41,7 @@ const CustomButton = (props) => {
 };
 CustomButton.propTypes = propTypes;
 CustomButton.defaultProps = defaultProps;
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
     return {
         theme: state.ThemeReducer.defaultTheme,
     };

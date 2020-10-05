@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import './Style.Card.scss';
 
-const Card = (props) => {
+const Card = props => {
     useEffect(() => {
         console.log(props);
     });
@@ -35,7 +35,7 @@ const Card = (props) => {
     );
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
     return {
         theme: state.ThemeReducer.defaultTheme,
     };
