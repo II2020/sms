@@ -6,6 +6,26 @@ import './Style.scss';
 const HeaderComponent = (props) => {
     const [headerStyle] = useState(props.theme);
 
+    const renderStudentAdmissionNav = () => {
+        return (
+            <Nav>
+                <Nav.Item href="/" icon={<Icon icon="home" />}>
+                    Home
+                </Nav.Item>
+                <Nav.Item></Nav.Item>
+                <Nav.Item>Profile</Nav.Item>
+                <Dropdown title="Admission" menuStyle={{ width: '100%' }} eventKey="admission">
+                    <Dropdown.Item eventKey="1">New Admission</Dropdown.Item>
+                    <Dropdown.Item eventKey="2">View Admission</Dropdown.Item>
+                </Dropdown>
+                <Dropdown title="Promotion" menuStyle={{ width: '100%' }} eventKey="promotion">
+                    <Dropdown.Item eventKey="3">Promotion</Dropdown.Item>
+                    <Dropdown.Item eventKey="4">Add Division</Dropdown.Item>
+                </Dropdown>
+            </Nav>
+        );
+    };
+
     return (
         <Header>
             <Navbar appearance="inverse" style={{ ...headerStyle }}>
@@ -14,18 +34,15 @@ const HeaderComponent = (props) => {
                 </Navbar.Header>
                 <Navbar.Body>
                     <Nav>
-                        <Nav.Item href="/" icon={<Icon icon="home" />}>
-                            Home
-                        </Nav.Item>
-
-                        <Nav.Item></Nav.Item>
-                        <Nav.Item>Products</Nav.Item>
-                        <Dropdown title="About">
-                            <Dropdown.Item>Company</Dropdown.Item>
-                            <Dropdown.Item>Team</Dropdown.Item>
-                            <Dropdown.Item>Contact</Dropdown.Item>
-                        </Dropdown>
+                        {props.currentPath === 'studentAdmission' ? (
+                            renderStudentAdmissionNav()
+                        ) : (
+                            <Nav.Item href="/" icon={<Icon icon="home" />}>
+                                Home
+                            </Nav.Item>
+                        )}
                     </Nav>
+
                     <Nav pullRight>
                         <Nav.Item icon={<Icon icon="cog" />}>Settings</Nav.Item>
                     </Nav>
@@ -38,6 +55,7 @@ const mapStateToProps = (state) => {
     console.log(state);
     return {
         theme: state.ThemeReducer.defaultTheme,
+        currentPath: state.CurrentPathReducer.currentPath,
     };
 };
 

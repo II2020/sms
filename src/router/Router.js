@@ -5,7 +5,6 @@ import HeaderComponent from '../components/templates/header/HeaderComponent';
 import FooterComponent from '../components/templates/footer/Footer';
 import HomeScreen from '../components/templates/homescreen/HomeScreen';
 import Student from '../pages/studentAdmission/StudentAdmission';
-import Image from '../assets/bag.jpg';
 import './Style.Layout.scss';
 
 function getWindowDimensions() {
@@ -30,7 +29,7 @@ function useWindowDimensions() {
     return windowDimensions;
 }
 const Router = () => {
-    const { height, width } = useWindowDimensions();
+    const { height } = useWindowDimensions();
 
     return (
         <div>

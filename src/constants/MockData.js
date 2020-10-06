@@ -323,37 +323,6 @@ export const grade = [
             },
         ],
     },
-    ,
-    {
-        id: 13,
-        grade: '13',
-        divison: [
-            {
-                id: 1,
-                division: 'A',
-            },
-            {
-                id: 2,
-                division: 'B',
-            },
-            {
-                id: 3,
-                division: 'C',
-            },
-            {
-                id: 4,
-                division: 'D',
-            },
-            {
-                id: 5,
-                division: 'E',
-            },
-            {
-                id: 6,
-                division: 'F',
-            },
-        ],
-    },
 ];
 
 export const studentDetailsByGradeAndDivison = {
