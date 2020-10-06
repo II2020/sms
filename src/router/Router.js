@@ -5,7 +5,6 @@ import HeaderComponent from '../components/templates/header/HeaderComponent';
 import FooterComponent from '../components/templates/footer/Footer';
 import HomeScreen from '../components/templates/homescreen/HomeScreen';
 import Student from '../pages/studentAdmission/StudentAdmission';
-import Image from '../assets/bag.jpg';
 import './Style.Layout.scss';
 
 function getWindowDimensions() {
@@ -33,11 +32,12 @@ const Router = () => {
     const { height } = useWindowDimensions();
 
     return (
-        <div className="show-fake-browser navbar-page">
+        <div>
             <Container
                 style={{
                     backgroundColor: '#fafafa',
                     height: height,
+                    width: '100%',
                 }}
             >
                 <Route path="/">
