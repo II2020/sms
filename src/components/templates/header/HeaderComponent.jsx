@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Header, Navbar, Nav, Dropdown, Icon } from 'rsuite';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import './Style.scss';
 
-const HeaderComponent = (props) => {
+const HeaderComponent = props => {
     const [headerStyle] = useState(props.theme);
 
     return (
@@ -19,7 +20,12 @@ const HeaderComponent = (props) => {
                         </Nav.Item>
 
                         <Nav.Item></Nav.Item>
-                        <Nav.Item>Products</Nav.Item>
+                        <Nav.Item>
+                            {' '}
+                            <Link to="/viewStudent">
+                                <p style={{ color: 'white' }}>Products</p>
+                            </Link>
+                        </Nav.Item>
                         <Dropdown title="About">
                             <Dropdown.Item>Company</Dropdown.Item>
                             <Dropdown.Item>Team</Dropdown.Item>
@@ -34,7 +40,7 @@ const HeaderComponent = (props) => {
         </Header>
     );
 };
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
     console.log(state);
     return {
         theme: state.ThemeReducer.defaultTheme,

@@ -5,6 +5,7 @@ import HeaderComponent from '../components/templates/header/HeaderComponent';
 import FooterComponent from '../components/templates/footer/Footer';
 import HomeScreen from '../components/templates/homescreen/HomeScreen';
 import Student from '../pages/studentAdmission/StudentAdmission';
+import ViewStudents from '../pages/studentAdmission/ViewStudents';
 import Image from '../assets/bag.jpg';
 import './Style.Layout.scss';
 
@@ -27,6 +28,7 @@ const Router = () => {
                     <Switch>
                         <Route exact path="/" component={HomeScreen} />
                         <Route exact path="/student" component={Student} />
+                        <Route exact path="/viewStudent" component={ViewStudents} />
                     </Switch>
                 </Content>
 
