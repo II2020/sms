@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Col, Row, Input, Radio, Select, Cascader, DatePicker, InputNumber, TreeSelect, Switch } from 'antd';
+import { Form, Col, Row, Input, Select, DatePicker } from 'antd';
 import './Style.AddTermResult.scss';
 import CustomButton from '../../components/atoms/CustomButton';
 import { connect } from 'react-redux';
@@ -113,7 +113,6 @@ const AddTermResults = (props) => {
                 <Row>
                     <Col colspan={24} md={12} className="col-class">
                         {data.map((dynamicData) => {
-                            let d = dynamicData;
                             return (
                                 <div>
                                     <Row>

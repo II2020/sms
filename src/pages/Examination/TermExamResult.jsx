@@ -1,7 +1,6 @@
 import React from 'react';
 import CustomTable from '../../components/molecules/CustomTable';
-import { Popconfirm, Divider, Modal, Button, Input, Select } from 'antd';
-import { PlusOutlined, DeleteOutlined, WarningOutlined } from '@ant-design/icons';
+import { PlusOutlined } from '@ant-design/icons';
 import { useHistory } from 'react-router-dom';
 
 const TermExamResult = () => {
@@ -24,9 +23,7 @@ const TermExamResult = () => {
 
             render: () => (
                 <span>
-                    <a>
-                        <PlusOutlined style={{ color: 'blue', fontSize: '1.2em' }} onClick={handleClick} />
-                    </a>
+                    <PlusOutlined style={{ color: 'blue', fontSize: '1.2em' }} onClick={handleClick} />
                 </span>
             ),
         },

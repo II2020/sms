@@ -41,6 +41,7 @@ const Router = () => {
                     backgroundPosition: 'center',
                     backgroundSize: 'cover',
                     backgroundRepeat: 'no-repeat',
+                    backgroundColor: '#fafafa',
                     height: height,
                 }}
             >
