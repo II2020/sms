@@ -38,10 +38,11 @@ const Router = (props) => {
         <div className="show-fake-browser navbar-page">
             <Container
                 style={{
-                    backgroundImage: `url(${props.location.pathname == '/login' ? Logo : Image})`,
+                    backgroundImage: `url(${props.location.pathname == '/login' ? Logo : '#fafafa'})`,
                     backgroundPosition: 'center',
                     backgroundSize: 'cover',
                     backgroundRepeat: 'no-repeat',
+                    backgroundColor: '#fafafa',
                     height: height,
                 }}
             >
