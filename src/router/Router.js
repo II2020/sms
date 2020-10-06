@@ -8,6 +8,7 @@ import Student from '../pages/studentAdmission/StudentAdmission';
 import Image from '../assets/bag.jpg';
 import './Style.Layout.scss';
 import Login from '../components/templates/Login/Login';
+import Logo from '../assets/student.png';
 
 function getWindowDimensions() {
     const { innerWidth: width, innerHeight: height } = window;
@@ -37,7 +38,7 @@ const Router = (props) => {
         <div className="show-fake-browser navbar-page">
             <Container
                 style={{
-                    backgroundImage: `url(${Image})`,
+                    backgroundImage: `url(${props.location.pathname == '/login' ? Logo : Image})`,
                     backgroundPosition: 'center',
                     backgroundSize: 'cover',
                     backgroundRepeat: 'no-repeat',
