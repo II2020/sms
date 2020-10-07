@@ -4,6 +4,9 @@ import MiniCard from '../../molecules/MiniCard';
 import NanoCard from '../../molecules/NanoCard';
 import './Style.fillter.scss';
 
+const defaultProps = {
+    grade: [],
+};
 const GradeWiseFillter = (props) => {
     const [selectedId, setSelectedId] = useState('');
     const [selectedDivisionId, setSelectedDivisionId] = useState('');
@@ -30,7 +33,7 @@ const GradeWiseFillter = (props) => {
                                 <FlexboxGrid.Item componentClass={Col} colspan={24} md={4} key={index}>
                                     <MiniCard
                                         key={index}
-                                        text={`G${post.grade}`}
+                                        text={`Grade${post.grade}`}
                                         id={post.id}
                                         obj={post.divison}
                                         onClick={onClickGrade}
@@ -65,4 +68,5 @@ const GradeWiseFillter = (props) => {
         </div>
     );
 };
+GradeWiseFillter.defaultProps = defaultProps;
 export default GradeWiseFillter;

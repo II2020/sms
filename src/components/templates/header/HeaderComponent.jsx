@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Header, Navbar, Nav, Dropdown, Icon } from 'rsuite';
 import { connect } from 'react-redux';
+import Heading from './HeadingComponent';
 import './Style.scss';
 
 const HeaderComponent = (props) => {
@@ -28,6 +29,7 @@ const HeaderComponent = (props) => {
 
     return (
         <Header>
+            <Heading />
             <Navbar appearance="inverse" style={{ ...headerStyle }}>
                 <Navbar.Header className="logo-area">
                     <p className="logo">School Management System</p>
