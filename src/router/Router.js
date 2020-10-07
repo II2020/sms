@@ -34,7 +34,7 @@ const Router = () => {
     const { height } = useWindowDimensions();
 
     return (
-        <div className="show-fake-browser navbar-page">
+        <div>
             <Container
                 style={{
                     // backgroundImage: `url(${Image})`,
@@ -43,6 +43,7 @@ const Router = () => {
                     backgroundRepeat: 'no-repeat',
                     backgroundColor: '#fafafa',
                     height: height,
+                    width: '100%',
                 }}
             >
                 <Route path="/">
