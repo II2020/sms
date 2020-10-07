@@ -50,3 +50,64 @@
     transform: translate(-50%, -50%);
     text-align: center;
 }
+.minicard {
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
+    transition: width 0.5s;
+    background-image: linear-gradient(#bfbfbf, #383737);
+    border-radius: 8px;
+    width: 95%;
+    height: 80px;
+    margin: 4px;
+}
+.minicardselected {
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
+    transition: width 0.5s;
+    background-image: linear-gradient(#bfbfbf, #383737);
+    border-radius: 8px;
+    width: 95%;
+    height: 80px;
+    margin: 4px;
+    box-shadow: 6px 6px grey;
+}
+
+.minicard:hover {
+    box-shadow: 6px 6px grey;
+    width: 95%;
+    height: 80px;
+}
+
+.cardcontainer {
+    padding: 20px 0;
+    text-align: center;
+}
+.cardcontainernano {
+    padding: 12px 0;
+    text-align: center;
+}
+
+.textMini {
+    color: #000;
+}
+.selectedtext {
+    color: rgb(245, 241, 241);
+}
+
+.nanocard {
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
+    transition: width 0.5s;
+    background-image: linear-gradient(#bfbfbf, #6d6a6a);
+    border-radius: 8px;
+    width: 95%;
+    height: 60px;
+    margin: 4px;
+}
+.nanocardselected {
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
+    transition: width 0.5s;
+    background-image: linear-gradient(#bfbfbf, #6d6a6a);
+    border-radius: 8px;
+    width: 95%;
+    height: 60px;
+    margin: 4px;
+    box-shadow: 6px 6px grey;
+}
