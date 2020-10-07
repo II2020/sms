@@ -1,0 +1,35 @@
+.studetcardatt{
+    display: 'flex';
+
+// padding:2%;
+ justify-content: center;
+    -webkit-box-shadow: 3px 7px 38px 7px rgba(161, 167, 219, 0.86);
+-moz-box-shadow: 3px 7px 38px 7px rgba(206, 228, 13, 0.86);
+box-shadow: 3px 7px 38px 7px rgba(226, 19, 19, 0.86);
+width: 20%;
+height:35%;
+}
+
+.h1{
+        font-weight: 600;
+        font-size: medium;
+
+        justify-content: center;
+        align-items: center;
+    }
+
+    .viewtype{
+        width:400px ;
+height:250px;
+border-color: blue;
+background-color: blue;
+        -webkit-box-shadow: 11px -12px 18px 2px rgba(196,191,230,0.56);
+-moz-box-shadow: 11px -12px 18px 2px rgba(196,191,230,0.56);
+box-shadow: 11px -12px 18px 2px rgba(196,191,230,0.56);
+border-radius:20%;
+
+    }
+    .para{
+        font-weight: '100';
+        font-size: medium;
+    }

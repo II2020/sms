@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Content, Row, Breadcrumb, Col, Nav } from 'rsuite';
 import Table from '../../components/molecules/CustomTable';
 import { NavLink } from 'react-router-dom';
-
 import './Style.StudentAdmissions.scss';
 const columns = [
     {
