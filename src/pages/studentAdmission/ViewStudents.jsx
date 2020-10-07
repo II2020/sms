@@ -142,11 +142,7 @@ const ViewStudents = () => {
         {
             title: 'More',
             key: 'action',
-            render: (text, record) => (
-                <Space size="middle">
-                    <p>Keerthi</p>
-                </Space>
-            ),
+            render: (text, record) => <Space size="middle"></Space>,
         },
     ];
     const handleSearch = (selectedKeys, confirm, dataIndex) => {
@@ -162,17 +158,22 @@ const ViewStudents = () => {
 
     return (
         <>
-            <Table
-                columns={columns}
-                dataSource={data}
-                style={{
-                    marginTop: '15px',
-                    width: '90%',
-                    marginLeft: 'auto',
-                    marginRight: 'auto',
-                    borderRadius: '8px',
-                }}
-            />
+            <div>
+                <h1>Student's Details</h1>
+            </div>
+            <div>
+                <Table
+                    columns={columns}
+                    dataSource={data}
+                    style={{
+                        marginTop: '15px',
+                        width: '90%',
+                        marginLeft: 'auto',
+                        marginRight: 'auto',
+                        borderRadius: '8px',
+                    }}
+                />
+            </div>
         </>
     );
 };

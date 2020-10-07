@@ -5,7 +5,7 @@
     justify-content: space-around;
 }
 .bodyContent {
-    background-color: azure;
+    background-color: rgb(210, 216, 216);
     width: 100%;
     border-radius: 10px;
 }
@@ -18,4 +18,11 @@
 
 .textArea {
     color: black;
+}
+.gradecardarea {
+    display: 'flex';
+    flex-direction: 'row';
+    justify-content: 'space-evnly';
+    width: '100%';
+    padding: 5px;
 }

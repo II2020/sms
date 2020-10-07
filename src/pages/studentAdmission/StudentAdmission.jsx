@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import AddStudentAdmissionForm from './StudentAdmissionForm';
 import ParentForm from './ParentDetails';
 import SisterForm from './SisterDetails';
+import { connect } from 'react-redux';
+import { SAVE_CURRENT_PATH } from '../../redux/action/CurrentPath';
 import './Style.StudentAdmissions.scss';
 import { Steps, Button, message } from 'antd';
 
@@ -22,9 +24,11 @@ const steps = [
     },
 ];
 
-const StudentAdmission = () => {
+const StudentAdmission = props => {
     const [current, setCurrent] = useState(0);
-
+    useEffect(() => {
+        props.saveCurrentPath('studentAdmission');
+    });
     const next = () => {
         const currentNo = current + 1;
         setCurrent(currentNo);
@@ -64,4 +68,12 @@ const StudentAdmission = () => {
         </>
     );
 };
-export default StudentAdmission;
+
+const mapDispatchToProps = dispatch => {
+    return {
+        saveCurrentPath: path => {
+            dispatch({ type: SAVE_CURRENT_PATH, payload: path });
+        },
+    };
+};
+export default connect(null, mapDispatchToProps)(StudentAdmission);
