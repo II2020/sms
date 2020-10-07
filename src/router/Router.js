@@ -5,7 +5,6 @@ import HeaderComponent from '../components/templates/header/HeaderComponent';
 import FooterComponent from '../components/templates/footer/Footer';
 import HomeScreen from '../components/templates/homescreen/HomeScreen';
 import Student from '../pages/studentAdmission/StudentAdmission';
-import Image from '../assets/bag.jpg';
 import './Style.Layout.scss';
 import Login from '../components/templates/Login/Login';
 import Logo from '../assets/student.png';
@@ -35,7 +34,7 @@ const Router = (props) => {
     const { height } = useWindowDimensions();
 
     return (
-        <div className="show-fake-browser navbar-page">
+        <div>
             <Container
                 style={{
                     backgroundImage: `url(${props.location.pathname == '/login' ? Logo : '#fafafa'})`,
@@ -44,6 +43,7 @@ const Router = (props) => {
                     backgroundRepeat: 'no-repeat',
                     backgroundColor: '#fafafa',
                     height: height,
+                    width: '100%',
                 }}
             >
                 {props.location.pathname !== '/login' ? <HeaderComponent path="/" /> : ''}

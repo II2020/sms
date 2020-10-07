@@ -10,3 +10,10 @@
     background-color: azure;
     width: 99.7%;
 }
+.gradecardarea {
+    display: 'flex';
+    flex-direction: 'row';
+    justify-content: 'space-evnly';
+    width: '100%';
+    padding: 5px;
+}
