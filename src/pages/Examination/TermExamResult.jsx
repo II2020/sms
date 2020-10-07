@@ -2,6 +2,7 @@ import React from 'react';
 import CustomTable from '../../components/molecules/CustomTable';
 import { PlusOutlined } from '@ant-design/icons';
 import { useHistory } from 'react-router-dom';
+import './Style.TermExamResult.scss';
 
 const TermExamResult = () => {
     const history = useHistory();
@@ -22,9 +23,11 @@ const TermExamResult = () => {
             key: 'action',
 
             render: () => (
-                <span>
-                    <PlusOutlined style={{ color: 'blue', fontSize: '1.2em' }} onClick={handleClick} />
-                </span>
+                <div className="plus-outlined">
+                    <span>
+                        <PlusOutlined onClick={handleClick} />
+                    </span>
+                </div>
             ),
         },
     ];
