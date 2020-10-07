@@ -20,26 +20,6 @@ const StudentAdmission = (props) => {
         <div>
             <br />
             <GradeWiseFillter grade={grade} onClickGrade={onClickGrade} onClickDivision={onClickDivision} />
-            {/* <Row>
-                <Col md={4}>
-                    <Breadcrumb className="breadcrumb">
-                        <NavLink to="/">
-                            <>Home</>
-                        </NavLink>
-                        <NavLink to="/student">
-                            <>Student Admission</>
-                        </NavLink>
-                    </Breadcrumb>
-                </Col>
-            </Row> */}
-
-            {/* <Row>
-                {steps === 'step1' ? (
-                    <GradeWiseFillter grade={grade} onClickGrade={onClickGrade} onClickDivision={onClickDivision} />
-                ) : (
-                    'step2'
-                )}
-            </Row> */}
         </div>
     );
 };
