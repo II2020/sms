@@ -7,6 +7,7 @@ import HomeScreen from '../components/templates/homescreen/HomeScreen';
 import Student from '../pages/studentAdmission/StudentAdmission';
 import Image from '../assets/bag.jpg';
 import './Style.Layout.scss';
+import ViewAdmission from '../pages/studentAdmission/ViewAdmission';
 
 function getWindowDimensions() {
     const { innerWidth: width, innerHeight: height } = window;
@@ -36,7 +37,7 @@ const Router = () => {
         <div className="show-fake-browser navbar-page">
             <Container
                 style={{
-                    backgroundImage: `url(${Image})`,
+                    // backgroundImage: `url(${Image})`,
                     backgroundPosition: 'center',
                     backgroundSize: 'cover',
                     backgroundRepeat: 'no-repeat',
@@ -48,7 +49,8 @@ const Router = () => {
                 </Route>
                 <Content>
                     <Switch>
-                        <Route exact path="/" component={HomeScreen} />
+                    <Route exact path="/" component={HomeScreen} />
+                        <Route exact path="/ViewAdmission" component={ViewAdmission} />
                         <Route exact path="/student" component={Student} />
                     </Switch>
                 </Content>
