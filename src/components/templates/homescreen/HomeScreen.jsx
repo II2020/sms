@@ -1,36 +1,41 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Grid, Row, Col } from 'rsuite';
 import { NavLink } from 'react-router-dom';
 import Card from '../../molecules/Card';
-import Student from '../../../assets/happy-students.jpg';
-import Academic from '../../../assets/academic.png';
-import timeTable from '../../../assets/timeTable.png';
-import calander from '../../../assets/calander.png';
-import examResult from '../../../assets/test.png';
-import library from '../../../assets/bookshelf.png';
-import inventory from '../../../assets/checklist.png';
-import sport from '../../../assets/basketball.png';
+import Student from '../../../assets/students.png';
+import Academic from '../../../assets/calendar.png';
+import timeTable from '../../../assets/time.png';
+import calander from '../../../assets/attandence.png';
+import examResult from '../../../assets/exam.png';
+import library from '../../../assets/library.png';
+import inventory from '../../../assets/inventory.png';
+import sport from '../../../assets/football.png';
+import { connect } from 'react-redux';
+import { SAVE_CURRENT_PATH } from '../../../redux/action/CurrentPath';
 
-const HomeScreen = () => {
+const HomeScreen = (props) => {
     function onClick(text) {
         console.log(text);
     }
+    useEffect(() => {
+        props.saveCurrentPath('home');
+    });
     return (
         <Grid fluid className="grid" style={{ padding: '50px', alignContent: 'center' }}>
             <Row className="show-grid" style={{ padding: '10px', alignContent: 'center' }}>
                 <Col xs={24} sm={24} md={6}>
                     <NavLink to="/student">
-                        <Card onClick={() => onClick('student')} text="Student" icon={Student} />
+                        <Card onClick={() => onClick('student')} text="Student" icon={Student} key="Student" />
                     </NavLink>
                 </Col>
                 <Col xs={24} sm={24} md={6}>
-                    <Card onClick={() => onClick('academic')} text="Academic" icon={Academic} />
+                    <Card onClick={() => onClick('academic')} text="Academic Calender" icon={Academic} key="academic" />
                 </Col>
                 <Col xs={24} sm={24} md={6}>
-                    <Card onClick={() => onClick('timeTable')} text="Time Table" icon={timeTable} />
+                    <Card onClick={() => onClick('timeTable')} text="Time Table" icon={timeTable} key="timeTable" />
                 </Col>
                 <Col xs={24} sm={24} md={6}>
-                    <Card onClick={() => onClick('academicCalander')} text="Academic Calander" icon={calander} />
+                    <Card onClick={() => onClick('attandence')} text="Attandence" icon={calander} key="attandence" />
                 </Col>
             </Row>
 
@@ -51,4 +56,12 @@ const HomeScreen = () => {
         </Grid>
     );
 };
-export default HomeScreen;
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        saveCurrentPath: (path) => {
+            dispatch({ type: SAVE_CURRENT_PATH, payload: path });
+        },
+    };
+};
+export default connect(null, mapDispatchToProps)(HomeScreen);

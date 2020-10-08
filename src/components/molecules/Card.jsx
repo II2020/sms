@@ -1,11 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import './Style.Card.scss';
 
 const Card = (props) => {
-    useEffect(() => {
-        console.log(props);
-    });
     return (
         <div className="container">
             <div
@@ -15,11 +12,11 @@ const Card = (props) => {
                     backgroundImage: `url(${props.icon})`,
                     backgroundRepeat: 'no-repeat',
                     backgroundColor: '#F4F9F6',
-                    backgroundSize: 'cover',
+                    backgroundSize: '150px',
                     backgroundPosition: 'center',
                     width: '100%',
                     borderRadius: '5px',
-                    height: '200px',
+                    height: '180px',
                     hover: {
                         boxShadow: '10px 14px 15px 14px rgba(0, 0, 0, 0.3)',
                         transform: "translate3d('2px')",

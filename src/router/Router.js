@@ -5,7 +5,7 @@ import HeaderComponent from '../components/templates/header/HeaderComponent';
 import FooterComponent from '../components/templates/footer/Footer';
 import HomeScreen from '../components/templates/homescreen/HomeScreen';
 import Student from '../pages/studentAdmission/StudentAdmission';
-import Image from '../assets/bag.jpg';
+
 import './Style.Layout.scss';
 import PromotionType from '../pages/promotion/Promotion';
 import AllPromotionUI from '../pages/promotion/AllPromotionUI';
@@ -35,14 +35,12 @@ const Router = () => {
     const { height } = useWindowDimensions();
 
     return (
-        <div className="show-fake-browser navbar-page">
+        <div>
             <Container
                 style={{
-                    backgroundImage: `url(${Image})`,
-                    backgroundPosition: 'center',
-                    backgroundSize: 'cover',
-                    backgroundRepeat: 'no-repeat',
+                    backgroundColor: '#fafafa',
                     height: height,
+                    width: '100%',
                 }}
             >
                 <Route path="/">
