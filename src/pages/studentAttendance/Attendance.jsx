@@ -6,7 +6,7 @@ import {Tabs} from 'antd';
 import AttedanceTable from './AttendanceTable';
 import BulkAttedanceTable from './BulkAttendance';
 import AttendanceViewType from './AttendanceViewType';
-import IndividualAttendance from './IndividualAttendance';
+
 const { TabPane } = Tabs;
 
 const Attendance = () => {
@@ -52,9 +52,7 @@ const Attendance = () => {
                             <TabPane tab="View Attendance" key="3">
                                 <AttendanceViewType/>
                             </TabPane>
-                            <TabPane tab="Individual Attendance" key="4">
-                                <IndividualAttendance/>
-                            </TabPane>
+                           
                         </Tabs>
                     </Row>
                     
