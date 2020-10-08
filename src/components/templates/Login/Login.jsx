@@ -40,7 +40,7 @@ const Login = () => {
                                 <Button className="button" appearance="primary" type="submit" key="button">
                                     Login
                                 </Button>
-                                <div className="forgetpassword">
+                                <div className="forgetpassword" key="forget-password">
                                     <a>Forget Password?</a>
                                 </div>
                             </Form>
