@@ -7,6 +7,8 @@ import HomeScreen from '../components/templates/homescreen/HomeScreen';
 import Student from '../pages/studentAdmission/StudentAdmission';
 
 import './Style.Layout.scss';
+import Login from '../components/templates/Login/Login';
+import Logo from '../assets/student.png';
 
 function getWindowDimensions() {
     const { innerWidth: width, innerHeight: height } = window;
@@ -29,29 +31,31 @@ function useWindowDimensions() {
 
     return windowDimensions;
 }
-const Router = () => {
+const Router = (props) => {
     const { height } = useWindowDimensions();
 
     return (
         <div>
             <Container
                 style={{
+                    backgroundImage: `url(${props.location.pathname == '/login' ? 'rgb(75, 38, 238)' : '#fafafa'})`,
+                    backgroundPosition: 'center',
+                    backgroundSize: 'cover',
+                    backgroundRepeat: 'no-repeat',
                     backgroundColor: '#fafafa',
                     height: height,
                     width: '100%',
                 }}
             >
-                <Route path="/">
-                    <HeaderComponent />
-                </Route>
+                {props.location.pathname !== '/login' ? <HeaderComponent path="/" /> : ''}
                 <Content>
                     <Switch>
                         <Route exact path="/" component={HomeScreen} />
                         <Route exact path="/student" component={Student} />
+                        <Route exact path="/login" component={Login} />
                     </Switch>
                 </Content>
-
-                <FooterComponent />
+                {props.location.pathname !== '/login' ? <FooterComponent /> : ''}
             </Container>
         </div>
     );

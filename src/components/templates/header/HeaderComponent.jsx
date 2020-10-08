@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Header, Navbar, Nav, Dropdown, Icon } from 'rsuite';
+import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Heading from './HeadingComponent';
 import './Style.scss';
@@ -46,7 +47,9 @@ const HeaderComponent = (props) => {
                     </Nav>
 
                     <Nav pullRight>
-                        <Nav.Item icon={<Icon icon="cog" />}>Settings</Nav.Item>
+                        <Nav.Item icon={<Icon icon="cog" />}>
+                            <NavLink to="/login">Settings</NavLink>
+                        </Nav.Item>
                     </Nav>
                 </Navbar.Body>
             </Navbar>
