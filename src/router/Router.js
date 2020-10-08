@@ -7,6 +7,8 @@ import HomeScreen from '../components/templates/homescreen/HomeScreen';
 import Student from '../pages/studentAdmission/StudentAdmission';
 
 import './Style.Layout.scss';
+import TermExamResult from '../pages/Examination/TermExamResult';
+import AddTermResults from '../pages/Examination/AddTermResults';
 
 function getWindowDimensions() {
     const { innerWidth: width, innerHeight: height } = window;
@@ -36,6 +38,10 @@ const Router = () => {
         <div>
             <Container
                 style={{
+                    // backgroundImage: `url(${Image})`,
+                    backgroundPosition: 'center',
+                    backgroundSize: 'cover',
+                    backgroundRepeat: 'no-repeat',
                     backgroundColor: '#fafafa',
                     height: height,
                     width: '100%',
@@ -48,6 +54,8 @@ const Router = () => {
                     <Switch>
                         <Route exact path="/" component={HomeScreen} />
                         <Route exact path="/student" component={Student} />
+                        <Route exact path="/termExamResult" component={TermExamResult} />
+                        <Route exact path="/addTermResults" component={AddTermResults} />
                     </Switch>
                 </Content>
 

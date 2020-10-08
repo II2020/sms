@@ -1,0 +1,30 @@
+.flex-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-flow: column wrap;
+    height: 100%;
+}
+
+.select-class {
+    width: 220px;
+}
+.form-lable {
+    display: flex;
+    justify-content: flex-start;
+    color: 'black';
+}
+
+.form-class {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 10px;
+}
+.col-class {
+    padding-left: 20px;
+    padding-top: 10px;
+}
+.col-submit-class {
+    padding: 0px 20px 20px 0px;
+}
