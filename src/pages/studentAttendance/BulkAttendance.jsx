@@ -1,6 +1,6 @@
 import React from 'react';
 import {Checkbox, Input,DatePicker, Space } from 'antd';
-import { studentDetailsByGradeAndDivison } from '../../constants/mockData';
+import { studentDetailsByGradeAndDivison } from '../../constants/MockData';
 import CustomTable from '../../components/molecules/CustomTable';
 import CustomButton from '../../components/atoms/CustomButton';
 

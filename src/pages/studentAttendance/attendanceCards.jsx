@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Col, Row} from 'rsuite';
 import { connect } from 'react-redux';
-import { grade } from '../../constants/mockData';
+import { grade } from '../../constants/MockData';
 import './Style.Attendance.scss';
 import { Card } from 'antd';
 // import AttedanceTable from './AttendanceTable';
