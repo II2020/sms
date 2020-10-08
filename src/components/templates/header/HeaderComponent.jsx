@@ -3,6 +3,7 @@ import { Header, Navbar, Nav, Dropdown, Icon } from 'rsuite';
 import { connect } from 'react-redux';
 import Heading from './HeadingComponent';
 import './Style.scss';
+import { NavLink } from 'react-router-dom';
 
 const HeaderComponent = (props) => {
     const [headerStyle] = useState(props.theme);
@@ -20,7 +21,9 @@ const HeaderComponent = (props) => {
                     <Dropdown.Item eventKey="2">View Admission</Dropdown.Item>
                 </Dropdown>
                 <Dropdown title="Promotion" menuStyle={{ width: '100%' }} eventKey="promotion">
-                    <Dropdown.Item eventKey="3">Promotion</Dropdown.Item>
+                    <NavLink to="/promotionType">
+                        <Dropdown.Item eventKey="3">Promotion</Dropdown.Item>
+                    </NavLink>
                     <Dropdown.Item eventKey="4">Add Division</Dropdown.Item>
                 </Dropdown>
             </Nav>
