@@ -5,7 +5,6 @@ import HeaderComponent from '../components/templates/header/HeaderComponent';
 import FooterComponent from '../components/templates/footer/Footer';
 import HomeScreen from '../components/templates/homescreen/HomeScreen';
 import Student from '../pages/studentAdmission/StudentAdmission';
-
 import './Style.Layout.scss';
 
 function getWindowDimensions() {

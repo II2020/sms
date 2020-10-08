@@ -29,7 +29,7 @@ const HomeScreen = (props) => {
                     </NavLink>
                 </Col>
                 <Col xs={24} sm={24} md={6}>
-                    <Card onClick={() => onClick('academic')} text="Academic Calender" icon={Academic} key="academic" />
+                    <Card onClick={() => onClick('academic')} text="Academic" icon={Academic} />
                 </Col>
                 <Col xs={24} sm={24} md={6}>
                     <Card onClick={() => onClick('timeTable')} text="Time Table" icon={timeTable} key="timeTable" />
