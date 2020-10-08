@@ -2,7 +2,7 @@
 
 .background {
     font-family: 'Open Sans', sans-serif;
-    background: url('../../../assets/login1.jpg') no-repeat center center fixed;
+    background: rgb(76, 93, 187);
     color: #3a3c47;
     height: 100vh;
     display: flex;
@@ -22,13 +22,14 @@ h1 {
 }
 
 .loginform {
-    background-color: rgba(12, 12, 12, 0.5);
-    box-shadow: inset 2px 2px 5px 0 rgba(28, 30, 32, 0.6);
     width: 100%;
     border-radius: 10px;
-    max-width: 380px;
+    max-width: 375px;
     padding: 58px 40px;
-    margin: 70px 20px 50px 100px;
+    margin-top: 80px;
+    margin-left: 110px;
+    background-color: rgb(241, 239, 248);
+    box-shadow: inset 2px 2px 5px 0 rgba(42, 45, 48, 0.12);
 }
 
 .row {
@@ -40,16 +41,16 @@ h1 {
 
 .row label {
     font-size: 13px;
-    color: white;
+    color: rgb(12, 12, 12);
 }
 
 .inputfield {
-    flex: 1;
+    // flex: 1;
     padding: 13px;
     border: 1px solid white;
     border-radius: 4px;
     font-size: 16px;
-    transition: all 0.2s ease-out;
+    color: rgb(168, 164, 164);
 }
 
 .row input:focus {
@@ -58,15 +59,14 @@ h1 {
 }
 
 .row input::placeholder {
-    color: white;
+    color: rgb(7, 7, 7);
 }
 
 .button {
-    width: 100%;
+    width: 300px;
     padding: 12px;
     font-size: 18px;
-
-    color: #fff;
+    color: rgb(7, 7, 7);
     border: none;
     border-radius: 100px;
     cursor: pointer;
@@ -75,25 +75,36 @@ h1 {
 }
 
 .mainheading {
-    color: rgb(57, 26, 197);
-
-    margin-top: 70px;
-    margin-left: 80px;
+    color: rgb(91, 89, 218);
+    margin-left: 10px;
+    margin-right: 10px;
     font-style: Sans-serif;
     font-weight: bold;
+    margin-top: 40px;
+    background-color: rgb(241, 239, 248);
+    box-shadow: inset 2px 2px 5px 0 rgba(42, 45, 48, 0.12);
+    border-radius: 30px;
 }
 
 .h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: rgb(7, 7, 7);
     margin-top: -50px;
     padding: 20px;
 }
 
 button:hover {
     background: #55d3ac;
+}
+
+.form-background {
+    background-color: #f9faff;
+    height: 100vh;
+    display: flex;
+    align-self: flex-end;
+    width: 100vh;
 }
 
 @media (max-width: 458px) {
@@ -107,4 +118,36 @@ button:hover {
         box-shadow: none;
         padding: 20px 0;
     }
+}
+
+.row-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.column-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+}
+
+.blue-column {
+    height: 100vh;
+    width: 105ch;
+}
+
+.green-column {
+    height: 100vh;
+    box-shadow: 2px 2px 5px 2px rgba(42, 45, 48, 0.12);
+}
+
+.image {
+    width: 105ch;
+    height: 100vh;
+}
+.forgetpassword {
+    padding: 20px;
 }

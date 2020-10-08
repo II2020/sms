@@ -37,7 +37,7 @@ const Router = (props) => {
         <div>
             <Container
                 style={{
-                    backgroundImage: `url(${props.location.pathname == '/login' ? Logo : '#fafafa'})`,
+                    backgroundImage: `url(${props.location.pathname == '/login' ? 'rgb(75, 38, 238)' : '#fafafa'})`,
                     backgroundPosition: 'center',
                     backgroundSize: 'cover',
                     backgroundRepeat: 'no-repeat',
