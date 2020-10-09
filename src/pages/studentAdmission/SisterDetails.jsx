@@ -86,7 +86,7 @@ const SisterForm = () => {
                         </div>
                     );
                 })}
-                <FlexboxGrid justify="center">
+                <FlexboxGrid justify="end">
                     <FlexboxGrid.Item componentClass={Col} colspan={24} md={6}>
                         <Button appearance="primary" onClick={handleSubmit} text="Submit" />
                     </FlexboxGrid.Item>

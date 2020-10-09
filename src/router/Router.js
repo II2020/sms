@@ -43,7 +43,7 @@ const Router = () => {
                 <Route path="/">
                     <HeaderComponent />
                 </Route>
-                <Content>
+                <Content style={{ overflow: 'scroll' }}>
                     <Switch>
                         <Route exact path="/" component={HomeScreen} />
                         <Route exact path="/student" component={Student} />

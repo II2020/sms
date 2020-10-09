@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Button from '../../components/atoms/CustomButton';
-import { Schema, Form, FlexboxGrid, Col, DatePicker, Input, Radio, RadioGroup, Row } from 'rsuite';
+import { Schema, Form, FlexboxGrid, Col, Input, Radio, RadioGroup, Row } from 'rsuite';
 import TextField from '../../components/atoms/TextField';
 import SelectPicker from '../../components/atoms/SelectField';
 import { IS_REQUIRED } from '../../constants/ValidationMassage';
@@ -66,7 +66,7 @@ const ParentForm = () => {
         console.log(formValue, 'Form Value', formError);
     };
     return (
-        <div className="bodyContent">
+        <div>
             <br></br>
             <Form
                 className="form"
@@ -81,125 +81,142 @@ const ParentForm = () => {
                 model={model}
             >
                 <div className="show-grid">
-                    <Row>
-                        <Col md={12}>
-                            <FlexboxGrid justify="start">
-                                <FlexboxGrid.Item componentClass={Col} colspan={24} md={12}>
-                                    <TextField className="field" name="fatherName" label="Name of Father" />
-                                </FlexboxGrid.Item>
-                                <FlexboxGrid.Item componentClass={Col} colspan={24} md={12}>
-                                    <TextField className="field" name="fatherOccupation" label="Father Occupation" />
-                                </FlexboxGrid.Item>
-                                <FlexboxGrid.Item componentClass={Col} colspan={24} md={12}>
-                                    <TextField className="field" name="fatherPhoneNo" label="Father Telephone No" />
-                                </FlexboxGrid.Item>
-                                <FlexboxGrid.Item componentClass={Col} colspan={24} md={12}>
-                                    <TextField className="field" name="fatherEmail" label="Father Email" />
-                                </FlexboxGrid.Item>
-                                <FlexboxGrid.Item componentClass={Col} colspan={48} md={24}>
-                                    <p className="textArea">Father Offical Address</p>
-                                    <Input
-                                        className="field"
-                                        componentClass="textarea"
-                                        name="fatherOfficalAddress"
-                                        rows={3}
-                                        style={{ width: '99%' }}
-                                    />
-                                </FlexboxGrid.Item>
-                                <FlexboxGrid.Item componentClass={Col} colspan={24} md={12}>
-                                    <SelectPicker className="field" name="guardian" label="Guardian" />
-                                </FlexboxGrid.Item>
-                                <FlexboxGrid.Item componentClass={Col} colspan={24} md={12}>
-                                    <TextField className="field" name="guardianName" label="Name of Guardian" />
-                                </FlexboxGrid.Item>
-                                <FlexboxGrid.Item componentClass={Col} colspan={24} md={12}>
-                                    <TextField
-                                        className="field"
-                                        name="guardianOccupation"
-                                        label="Guardian Occupation"
-                                    />
-                                </FlexboxGrid.Item>
-                                <FlexboxGrid.Item componentClass={Col} colspan={24} md={12}>
-                                    <TextField className="field" name="guardianAddress" label="Guardian Address" />
-                                </FlexboxGrid.Item>
-                                <FlexboxGrid.Item componentClass={Col} colspan={24} md={12}>
-                                    <TextField
-                                        className="field"
-                                        name="guardianTelephoneNo"
-                                        label="Guardian Telephone No"
-                                    />
-                                </FlexboxGrid.Item>
-                                <FlexboxGrid.Item componentClass={Col} colspan={24} md={12}>
-                                    <TextField className="field" name="guardianEmail" label="Guardian Email" />
-                                </FlexboxGrid.Item>
-                            </FlexboxGrid>
-                        </Col>
-                        <Col md={12}>
-                            <FlexboxGrid justify="start">
-                                <FlexboxGrid.Item componentClass={Col} colspan={24} md={12}>
-                                    <TextField className="field" name="motherName" label="Name of Mother" />
-                                </FlexboxGrid.Item>
-                                <FlexboxGrid.Item componentClass={Col} colspan={24} md={12}>
-                                    <TextField className="field" name="motherOccupation" label="Mother Occupation" />
-                                </FlexboxGrid.Item>
-                                <FlexboxGrid.Item componentClass={Col} colspan={24} md={12}>
-                                    <TextField className="field" name="motherPhoneNo" label="Mother Telephone No" />
-                                </FlexboxGrid.Item>
-                                <FlexboxGrid.Item componentClass={Col} colspan={24} md={12}>
-                                    <TextField className="field" name="motherEmail" label="Mother Email" />
-                                </FlexboxGrid.Item>
-                                <FlexboxGrid.Item componentClass={Col} colspan={48} md={24}>
-                                    <p className="textArea">Mother Offical Address</p>
-                                    <Input
-                                        className="field"
-                                        componentClass="textarea"
-                                        name="motherOfficalAddress"
-                                        rows={3}
-                                        style={{ width: '99%' }}
-                                    />
-                                </FlexboxGrid.Item>
-                                <FlexboxGrid.Item componentClass={Col} colspan={24} md={12}>
-                                    <p className="textArea">If Mother an Old Girl</p>
-                                    <RadioGroup inline>
-                                        <Radio value="A" className="textArea">
-                                            Yes
-                                        </Radio>
-                                        <Radio value="B" className="textArea">
-                                            No
-                                        </Radio>
-                                    </RadioGroup>
-                                </FlexboxGrid.Item>
-                                <FlexboxGrid.Item componentClass={Col} colspan={24} md={12}>
-                                    <TextField className="field" name="house" label="House" />
-                                </FlexboxGrid.Item>
-                                <FlexboxGrid.Item componentClass={Col} colspan={24} md={24}>
-                                    <p className="textArea">Period in School</p>
-                                    <div>
-                                        <Row style={{ width: '100%' }}>
-                                            <Col md={12}>
-                                                <DatePicker
-                                                    name="periodInSchool"
-                                                    appearance="default"
-                                                    placeholder="From"
-                                                    style={{ width: '95%' }}
-                                                />
-                                            </Col>
-                                            <Col md={12}>
-                                                <DatePicker
-                                                    name="periodInSchool"
-                                                    appearance="default"
-                                                    placeholder="To"
-                                                    style={{ width: '95%' }}
-                                                />
-                                            </Col>
-                                        </Row>
-                                    </div>
-                                </FlexboxGrid.Item>
-                            </FlexboxGrid>
-                        </Col>
-                    </Row>
+                    <FlexboxGrid justify="start">
+                        <Row style={{ width: '100%' }}>
+                            <Col md={12}>
+                                <TextField
+                                    style={{ width: '98%' }}
+                                    className="field"
+                                    name="fatherName"
+                                    label="Name of Father"
+                                />
+                                <TextField
+                                    style={{ width: '98%' }}
+                                    className="field"
+                                    name="fatherOccupation"
+                                    label="Father Occupation"
+                                />
+                                <TextField
+                                    style={{ width: '98%' }}
+                                    className="field"
+                                    name="fatherPhoneNo"
+                                    label="Father Telephone No"
+                                />
+                                <TextField
+                                    style={{ width: '98%' }}
+                                    className="field"
+                                    name="fatherEmail"
+                                    label="Father Email"
+                                />
+                                <SelectPicker
+                                    style={{ width: '58%', marginTop: '-10px' }}
+                                    className="field"
+                                    name="guardian"
+                                    label="Guardian"
+                                />
+                                <TextField
+                                    style={{ width: '98%' }}
+                                    className="field"
+                                    name="guardianOccupation"
+                                    label="Guardian Occupation"
+                                />
+                                <TextField
+                                    style={{ width: '98%' }}
+                                    className="field"
+                                    name="guardianTelephoneNo"
+                                    label="Guardian Telephone No"
+                                />
+                                <Row>
+                                    <Col md={12}>
+                                        <p className="textArea">If Mother an Old Girl</p>
+                                    </Col>
+                                    <Col md={12}>
+                                        <RadioGroup
+                                            inline
+                                            style={{ color: 'black', marginTop: '-5px' }}
+                                            defaultValue="A"
+                                        >
+                                            <Radio value="A" className="textArea">
+                                                Yes
+                                            </Radio>
+                                            <Radio value="B" className="textArea">
+                                                No
+                                            </Radio>
+                                        </RadioGroup>
+                                    </Col>
+                                </Row>
+                            </Col>
+                            <Col md={12}>
+                                <TextField
+                                    style={{ width: '98%' }}
+                                    className="field"
+                                    name="motherName"
+                                    label="Name of Mother"
+                                />
+                                <TextField
+                                    style={{ width: '98%' }}
+                                    className="field"
+                                    name="motherOccupation"
+                                    label="Mother Occupation"
+                                />
+                                <TextField
+                                    style={{ width: '98%' }}
+                                    className="field"
+                                    name="motherPhoneNo"
+                                    label="Mother Telephone No"
+                                />
+                                <TextField
+                                    style={{ width: '98%' }}
+                                    className="field"
+                                    name="motherEmail"
+                                    label="Mother Email"
+                                />
+                                <TextField
+                                    style={{ width: '98%' }}
+                                    className="field"
+                                    name="guardianName"
+                                    label="Name of Guardian"
+                                />
+                                <TextField
+                                    style={{ width: '98%' }}
+                                    className="field"
+                                    name="guardianAddress"
+                                    label="Guardian Address"
+                                />
+                                <TextField
+                                    style={{ width: '98%' }}
+                                    className="field"
+                                    name="guardianEmail"
+                                    label="Guardian Email"
+                                />
+                                <TextField style={{ width: '98%' }} className="field" name="house" label="House" />
+                            </Col>
+                        </Row>
+                        <Row style={{ width: '100%' }}>
+                            <Col md={12}>
+                                <p className="textArea">Father Offical Address</p>
+                                <Input
+                                    className="field"
+                                    componentClass="textarea"
+                                    name="fatherOfficalAddress"
+                                    rows={3}
+                                    style={{ width: '90%' }}
+                                />
+                            </Col>
+                            <Col md={12}>
+                                <p className="textArea">Mother Offical Address</p>
+                                <Input
+                                    className="field"
+                                    componentClass="textarea"
+                                    name="motherOfficalAddress"
+                                    rows={3}
+                                    style={{ width: '90%' }}
+                                />
+                            </Col>
+                        </Row>
+                    </FlexboxGrid>
                     <br></br>
-                    <FlexboxGrid justify="center">
+                    <FlexboxGrid justify="end">
                         <FlexboxGrid.Item componentClass={Col} colspan={24} md={6}>
                             <Button appearance="primary" onClick={handleSubmit} text="Submit" />
                         </FlexboxGrid.Item>

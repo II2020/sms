@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Button, Input, Space } from 'antd';
+import { Button, Input, Space, Modal } from 'antd';
+import { Row, Col } from 'rsuite';
 import Table from '../../components/molecules/CustomTable';
 import Highlighter from 'react-highlight-words';
-import { SearchOutlined } from '@ant-design/icons';
+import { SearchOutlined, EllipsisOutlined } from '@ant-design/icons';
 const data = [
     {
         key: '1',
@@ -13,7 +14,7 @@ const data = [
         telephoneNo: '0212260088',
     },
     {
-        key: '1',
+        key: '2',
         admissionNo: 'JF/ST/001',
         firstName: 'Keerthana',
         middleName: 'Keerthi',
@@ -21,7 +22,7 @@ const data = [
         telephoneNo: '0212260088',
     },
     {
-        key: '1',
+        key: '3',
         admissionNo: 'JF/ST/001',
         firstName: 'Keerthana',
         middleName: 'Keerthi',
@@ -29,7 +30,7 @@ const data = [
         telephoneNo: '0212260088',
     },
     {
-        key: '1',
+        key: '4',
         admissionNo: 'JF/ST/001',
         firstName: 'Keerthana',
         middleName: 'Keerthi',
@@ -37,7 +38,7 @@ const data = [
         telephoneNo: '0212260088',
     },
     {
-        key: '1',
+        key: '5',
         admissionNo: 'JF/ST/001',
         firstName: 'Keerthana',
         middleName: 'Keerthi',
@@ -45,10 +46,109 @@ const data = [
         telephoneNo: '0212260088',
     },
 ];
+
+const studentContent = (
+    <div style={{ width: '100%', borderRadius: '8px' }}>
+        <Row>
+            <Col md={12}>
+                <p>Admission Date:</p>
+                <p>Address:</p>
+                <p>Grama Sevaka's Division No:</p>
+                <p>Distance from place of stay to school:</p>
+                <p>Date of Birth:</p>
+                <p>Religion:</p>
+                <p>Race:</p>
+            </Col>
+            <Col md={12}>
+                <p>2020/10/07</p>
+                <p>Jaffna</p>
+                <p>J/408</p>
+                <p>32km</p>
+                <p>1997/12/05</p>
+                <p>Hindu</p>
+                <p></p>
+            </Col>
+        </Row>
+    </div>
+);
+
+const parentContent = (
+    <div style={{ width: '100%', borderRadius: '8px' }}>
+        <Row>
+            <Col md={12}>
+                <p>Admission Date:</p>
+                <p>Address:</p>
+                <p>Grama Sevaka's Division No:</p>
+                <p>Distance from place of stay to school:</p>
+                <p>Date of Birth:</p>
+                <p>Religion:</p>
+                <p>Race:</p>
+            </Col>
+            <Col md={12}>
+                <p>2020/10/07</p>
+                <p>keerthi</p>
+                <p>J/408</p>
+                <p>32km</p>
+                <p>1997/12/05</p>
+                <p>Hindu</p>
+                <p>KKKkk</p>
+            </Col>
+        </Row>
+    </div>
+);
+
+const sisterContent = (
+    <div style={{ width: '100%', borderRadius: '8px' }}>
+        <Row>
+            <Col md={12}>
+                <p>Admission Date:</p>
+                <p>Address:</p>
+                <p>Grama Sevaka's Division No:</p>
+                <p>Distance from place of stay to school:</p>
+                <p>Date of Birth:</p>
+                <p>Religion:</p>
+                <p>Race:</p>
+            </Col>
+            <Col md={12}>
+                <p>2020/10/07</p>
+                <p>keerthi</p>
+                <p>J/408</p>
+                <p>32km</p>
+                <p>1997/12/05</p>
+                <p>Hindu</p>
+                <p>KKKkk</p>
+            </Col>
+        </Row>
+    </div>
+);
+
 const ViewStudents = () => {
     const [searchText, setSearchText] = useState('');
     const [searchedColumn, setSearchedColumn] = useState('');
     const [searchInput, setSearchInput] = useState('');
+    const [visible, setVisible] = useState(false);
+    const [details, setDetails] = useState('');
+
+    const showModal = type => {
+        setVisible(true);
+        if (type === 'student') {
+            setDetails(studentContent);
+        } else if (type === 'parent') {
+            setDetails(parentContent);
+        } else if (type === 'sister') {
+            setDetails(sisterContent);
+        }
+    };
+
+    const handleOk = e => {
+        console.log(e);
+        setVisible(true);
+    };
+
+    const handleCancel = e => {
+        console.log(e);
+        setVisible(false);
+    };
     const getColumnSearchProps = dataIndex => ({
         filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }) => (
             <div style={{ padding: 8 }}>
@@ -141,8 +241,18 @@ const ViewStudents = () => {
         },
         {
             title: 'More',
-            key: 'action',
-            render: (text, record) => <Space size="middle"></Space>,
+            key: 'student',
+            render: (text, record) => <EllipsisOutlined onClick={() => showModal('student')} />,
+        },
+        {
+            title: "Parent's Details",
+            key: 'parent',
+            render: (text, record) => <EllipsisOutlined onClick={() => showModal('parent')} />,
+        },
+        {
+            title: "Sister's Details",
+            key: 'sister',
+            render: (text, record) => <EllipsisOutlined onClick={() => showModal('sister')} />,
         },
     ];
     const handleSearch = (selectedKeys, confirm, dataIndex) => {
@@ -174,6 +284,9 @@ const ViewStudents = () => {
                     }}
                 />
             </div>
+            <Modal title="Basic Modal" visible={visible} onOk={handleOk} onCancel={handleCancel} width="50%">
+                {details}
+            </Modal>
         </>
     );
 };

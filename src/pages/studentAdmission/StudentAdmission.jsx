@@ -39,7 +39,7 @@ const StudentAdmission = props => {
         setCurrent(currentNo);
     };
     return (
-        <>
+        <div className="bodyContent">
             <Steps current={current} style={{ margin: 'auto', width: '80%', padding: '10px' }}>
                 {steps.map(item => (
                     <Step key={item.title} title={item.title} />
@@ -65,7 +65,7 @@ const StudentAdmission = props => {
                     </Button>
                 )}
             </div>
-        </>
+        </div>
     );
 };
 
