@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Radio, RadioGroup, FormGroup, Row, Col } from 'rsuite';
+import { Radio, RadioGroup, FormGroup, Row, Col, Modal, Icon } from 'rsuite';
 import CustomButton from '../../components/atoms/CustomButton';
 import './Style.Promotion.scss';
 import { connect } from 'react-redux';
@@ -7,16 +7,22 @@ import { NavLink } from 'react-router-dom';
 
 const Promotion = (props) => {
     const [promotionType, setPromationType] = useState('/promotion');
-    const handleSubmit = () => {};
+    const [visible, setVisible] = useState(false);
+    const [allPromotion, setAllPromotion] = useState('');
+    const handleSubmit = () => {
+        if (allPromotion === 'allPromotion') {
+            setVisible(true);
+        }
+        setAllPromotion('');
+    };
+    const close = () => {
+        setVisible(false);
+    };
     const handleChange = (value) => {
-        var path =
-            value === 'allPromotion'
-                ? '/allPromotionUI'
-                : value === 'currentYear'
-                ? '/promotionType'
-                : value === 'individualPromotion'
-                ? '/promotionType'
-                : '';
+        if (value === 'allPromotion') {
+            setAllPromotion(value);
+        }
+        var path = value === 'currentYear' ? '/promotionType' : '/promotionType';
         setPromationType(path);
     };
     return (
@@ -49,6 +55,27 @@ const Promotion = (props) => {
                     </Row>
                 </RadioGroup>
             </FormGroup>
+            <Modal backdrop="static" show={visible} onHide={close} size="xs">
+                <Modal.Body>
+                    <Icon
+                        icon="remind"
+                        style={{
+                            color: '#ffb300',
+                            fontSize: 24,
+                        }}
+                    />
+                    {'  '}
+                    Are you sure you want to promote all students?
+                </Modal.Body>
+                <Modal.Footer>
+                    <CustomButton onClick={close} text="OK" />
+                    <CustomButton
+                        onClick={close}
+                        text="Cancel"
+                        style={{ backgroundColor: 'white', color: 'black', border: '1px solid black' }}
+                    />
+                </Modal.Footer>
+            </Modal>
         </div>
     );
 };
