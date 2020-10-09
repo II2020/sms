@@ -2,7 +2,7 @@ import { SAVE_THEME_WHILE_LOGIN } from '../action/Theme';
 
 const initialState = {
     defaultTheme: {
-        backgroundColor: '#357dbd',
+        backgroundColor: '#2721F6',
         color: '#F1F1F1',
     },
 };
