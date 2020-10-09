@@ -6,7 +6,6 @@ import FooterComponent from '../components/templates/footer/Footer';
 import HomeScreen from '../components/templates/homescreen/HomeScreen';
 import Student from '../pages/studentAdmission/StudentAdmission';
 import ViewStudents from '../pages/studentAdmission/ViewStudents';
-// import Image from '../assets/bag.jpg';
 import './Style.Layout.scss';
 function getWindowDimensions() {
     const { innerWidth: width, innerHeight: height } = window;

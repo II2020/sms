@@ -16,7 +16,7 @@ const Card = props => {
                     backgroundPosition: 'center',
                     width: '100%',
                     borderRadius: '5px',
-                    height: '190px',
+                    height: '180px',
                     hover: {
                         boxShadow: '10px 14px 15px 14px rgba(0, 0, 0, 0.3)',
                         transform: "translate3d('2px')",
