@@ -7,6 +7,7 @@ import HomeScreen from '../components/templates/homescreen/HomeScreen';
 import Student from '../pages/studentAdmission/StudentAdmission';
 
 import './Style.Layout.scss';
+import ViewAdmission from '../pages/studentAdmission/ViewAdmission';
 
 function getWindowDimensions() {
     const { innerWidth: width, innerHeight: height } = window;
@@ -46,7 +47,8 @@ const Router = () => {
                 </Route>
                 <Content>
                     <Switch>
-                        <Route exact path="/" component={HomeScreen} />
+                    <Route exact path="/" component={HomeScreen} />
+                        <Route exact path="/ViewAdmission" component={ViewAdmission} />
                         <Route exact path="/student" component={Student} />
                     </Switch>
                 </Content>
