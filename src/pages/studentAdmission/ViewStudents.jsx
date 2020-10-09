@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Button, Input, Space, Modal } from 'antd';
+import { Button, Input, Space, Modal, Upload } from 'antd';
 import { Row, Col } from 'rsuite';
 import Table from '../../components/molecules/CustomTable';
 import Highlighter from 'react-highlight-words';
-import { SearchOutlined, EllipsisOutlined } from '@ant-design/icons';
+import { SearchOutlined, EllipsisOutlined, DownloadOutlined, UploadOutlined } from '@ant-design/icons';
 const data = [
     {
         key: '1',
@@ -29,22 +29,6 @@ const data = [
         lastName: 'Raveendran',
         telephoneNo: '0212260088',
     },
-    {
-        key: '4',
-        admissionNo: 'JF/ST/001',
-        firstName: 'Keerthana',
-        middleName: 'Keerthi',
-        lastName: 'Raveendran',
-        telephoneNo: '0212260088',
-    },
-    {
-        key: '5',
-        admissionNo: 'JF/ST/001',
-        firstName: 'Keerthana',
-        middleName: 'Keerthi',
-        lastName: 'Raveendran',
-        telephoneNo: '0212260088',
-    },
 ];
 
 const studentContent = (
@@ -58,6 +42,12 @@ const studentContent = (
                 <p>Date of Birth:</p>
                 <p>Religion:</p>
                 <p>Race:</p>
+                <p>Former School:</p>
+                <p>Class the Applicant in now is:</p>
+                <p>Class to which Pupil seeks Admission:</p>
+                <p>In the Applicant seeking admission to Hostel:</p>
+                <p>Any Distinction in Studies:</p>
+                <p>Any Distinction in Sports:</p>
             </Col>
             <Col md={12}>
                 <p>2020/10/07</p>
@@ -76,13 +66,24 @@ const parentContent = (
     <div style={{ width: '100%', borderRadius: '8px' }}>
         <Row>
             <Col md={12}>
-                <p>Admission Date:</p>
-                <p>Address:</p>
-                <p>Grama Sevaka's Division No:</p>
-                <p>Distance from place of stay to school:</p>
-                <p>Date of Birth:</p>
-                <p>Religion:</p>
-                <p>Race:</p>
+                <p>Name of Father:</p>
+                <p>Father Occupation:</p>
+                <p>Father Telephone No:</p>
+                <p>Father Email:</p>
+                <p>Father Offical Address:</p>
+                <p>Name of Mother:</p>
+                <p>Mother Occupation:</p>
+                <p>Mother Telephone No:</p>
+                <p>Mother Email:</p>
+                <p>If Mother an Old Girl:</p>
+                <p>House:</p>
+                <p>Mother Offical Address:</p>
+                <p>Guardian:</p>
+                <p>Name of Guardian:</p>
+                <p>Guardian Occupation:</p>
+                <p>Guardian Address:</p>
+                <p>Guardian Telephone No:</p>
+                <p>Guardian Email:</p>
             </Col>
             <Col md={12}>
                 <p>2020/10/07</p>
@@ -101,22 +102,14 @@ const sisterContent = (
     <div style={{ width: '100%', borderRadius: '8px' }}>
         <Row>
             <Col md={12}>
-                <p>Admission Date:</p>
-                <p>Address:</p>
-                <p>Grama Sevaka's Division No:</p>
-                <p>Distance from place of stay to school:</p>
-                <p>Date of Birth:</p>
-                <p>Religion:</p>
-                <p>Race:</p>
+                <p>Name:</p>
+                <p>Grade:</p>
+                <p>Admission No:</p>
             </Col>
             <Col md={12}>
-                <p>2020/10/07</p>
-                <p>keerthi</p>
-                <p>J/408</p>
-                <p>32km</p>
-                <p>1997/12/05</p>
-                <p>Hindu</p>
-                <p>KKKkk</p>
+                <p>Mala</p>
+                <p>Grade-9</p>
+                <p>JF/002</p>
             </Col>
         </Row>
     </div>
@@ -128,6 +121,7 @@ const ViewStudents = () => {
     const [searchInput, setSearchInput] = useState('');
     const [visible, setVisible] = useState(false);
     const [details, setDetails] = useState('');
+    const [size] = useState('');
 
     const showModal = type => {
         setVisible(true);
@@ -139,7 +133,20 @@ const ViewStudents = () => {
             setDetails(sisterContent);
         }
     };
-
+    const props = {
+        action: '//jsonplaceholder.typicode.com/posts/',
+        listType: 'picture',
+        previewFile(file) {
+            console.log('Your upload file:', file);
+            // Your process logic. Here we just mock to the same file
+            return fetch('https://next.json-generator.com/api/json/get/4ytyBoLK8', {
+                method: 'POST',
+                body: file,
+            })
+                .then(res => res.json())
+                .then(({ thumbnail }) => thumbnail);
+        },
+    };
     const handleOk = e => {
         console.log(e);
         setVisible(true);
@@ -269,10 +276,24 @@ const ViewStudents = () => {
     return (
         <>
             <div>
-                <h1>Student's Details</h1>
+                <h3>Student's Details</h3>
             </div>
+
             <div>
                 <Table
+                    title={
+                        <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'flex-end' }}>
+                            <Upload {...props}>
+                                <Button type="primary" icon={<UploadOutlined />}>
+                                    Upload
+                                </Button>
+                            </Upload>
+                            <div style={{ width: '10px' }} />
+                            <Button type="primary" icon={<DownloadOutlined />} size={size}>
+                                Export
+                            </Button>
+                        </div>
+                    }
                     columns={columns}
                     dataSource={data}
                     style={{
@@ -284,7 +305,7 @@ const ViewStudents = () => {
                     }}
                 />
             </div>
-            <Modal title="Basic Modal" visible={visible} onOk={handleOk} onCancel={handleCancel} width="50%">
+            <Modal title="More Information" visible={visible} onOk={handleOk} onCancel={handleCancel} width="50%">
                 {details}
             </Modal>
         </>
