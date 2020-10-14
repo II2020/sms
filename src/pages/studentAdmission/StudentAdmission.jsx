@@ -5,27 +5,15 @@ import SisterForm from './SisterDetails';
 import { connect } from 'react-redux';
 import { SAVE_CURRENT_PATH } from '../../redux/action/CurrentPath';
 import './Style.StudentAdmissions.scss';
-import { Steps, Button, message } from 'antd';
+import { Steps} from 'antd';
 
 const { Step } = Steps;
 
-const steps = [
-    {
-        title: "Student's Details",
-        content: <AddStudentAdmissionForm />,
-    },
-    {
-        title: "Parent's Details",
-        content: <ParentForm />,
-    },
-    {
-        title: "Sister's Details",
-        content: <SisterForm />,
-    },
-];
 
 const StudentAdmission = props => {
     const [current, setCurrent] = useState(0);
+   
+    
     useEffect(() => {
         props.saveCurrentPath('studentAdmission');
     });
@@ -38,32 +26,34 @@ const StudentAdmission = props => {
         const currentNo = current - 1;
         setCurrent(currentNo);
     };
+
+
+
+    const steps =()=>{
+        return [
+            {
+                title: "Pupil's Details",
+                content: <AddStudentAdmissionForm next={next} prev={prev} />,
+            },
+            {
+                title: "Parent's Details",
+                content: <ParentForm next={next} prev={prev}/>,
+            },
+            {
+                title: "Sister's Details",
+                content: <SisterForm prev={prev}/>,
+            },
+        ];
+    }
     return (
-        <div className="bodyContent">
+        <div >
             <Steps current={current} style={{ margin: 'auto', width: '80%', padding: '10px' }}>
-                {steps.map(item => (
+                {steps().map(item => (
                     <Step key={item.title} title={item.title} />
                 ))}
             </Steps>
             <div className="steps-content" style={{ margin: 'auto', width: '97%', padding: '10px' }}>
-                {steps[current].content}
-            </div>
-            <div className="steps-action">
-                {current < steps.length - 1 && (
-                    <Button type="primary" onClick={() => next()}>
-                        Next
-                    </Button>
-                )}
-                {current === steps.length - 1 && (
-                    <Button type="primary" onClick={() => message.success('Processing complete!')}>
-                        Done
-                    </Button>
-                )}
-                {current > 0 && (
-                    <Button style={{ margin: '0 8px' }} onClick={() => prev()}>
-                        Previous
-                    </Button>
-                )}
+                {steps()[current].content}
             </div>
         </div>
     );

@@ -3,7 +3,7 @@ import { Row, Col, FlexboxGrid } from 'rsuite';
 import { Space, Input } from 'antd';
 import Button from '../../components/atoms/CustomButton';
 
-const SisterForm = () => {
+const SisterForm = (props) => {
     const [inputList, setInputList] = useState([{ name: '', grade: '', admissionNo: '' }]);
     const handleSubmit = () => {};
     // handle input change
@@ -27,7 +27,7 @@ const SisterForm = () => {
     };
 
     return (
-        <div className="App">
+        <div className="bodyContent">
             <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-around' }}>
                 <Row style={{ width: '100%' }}>
                     <Col md={6}>
@@ -86,8 +86,9 @@ const SisterForm = () => {
                         </div>
                     );
                 })}
-                <FlexboxGrid justify="end">
+                <FlexboxGrid justify="center">
                     <FlexboxGrid.Item componentClass={Col} colspan={24} md={6}>
+                    <Button style={{ margin: '0 8px' }} onClick={() => props.prev()} text=" Previous"/>
                         <Button appearance="primary" onClick={handleSubmit} text="Submit" />
                     </FlexboxGrid.Item>
                 </FlexboxGrid>

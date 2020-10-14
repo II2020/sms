@@ -29,7 +29,7 @@ const model = Schema.Model({
     admissionToHostel: StringType().isRequired(IS_REQUIRED),
 });
 
-const StudentAdmissionForm = () => {
+const StudentAdmissionForm = (props) => {
     const [formValue, setFormValue] = useState({
         admissionNo: '',
         firstName: '',
@@ -56,20 +56,24 @@ const StudentAdmissionForm = () => {
     const handleSubmit = () => {
         if (!form.check()) {
             console.error('Form Error');
+            props.next()
             return;
+        } else {
+            props.next();
+            console.log(formValue, 'Form Value', formError);
         }
         console.log(formValue, 'Form Value', formError);
     };
 
     return (
-        <div>
+        <div className="bodyContent">
             <Form
                 className="form"
-                ref={ref => setForm(ref)}
-                onChange={formValue => {
+                ref={(ref) => setForm(ref)}
+                onChange={(formValue) => {
                     setFormValue(formValue);
                 }}
-                onCheck={formError => {
+                onCheck={(formError) => {
                     setFormError(formError);
                 }}
                 formValue={formValue}
@@ -103,6 +107,13 @@ const StudentAdmissionForm = () => {
                                     name="lastName"
                                     label="Last Name"
                                 />
+                                <TextField
+                                    style={{ width: '98%' }}
+                                    className="field"
+                                    name="distance"
+                                    label="Distance from Place of Stay to School"
+                                />
+                                <br />
                                 <Row>
                                     <Col md={12}>
                                         <p className="textArea">Date of Birth</p>
@@ -116,12 +127,8 @@ const StudentAdmissionForm = () => {
                                         />
                                     </Col>
                                 </Row>
-                                <TextField
-                                    style={{ width: '98%' }}
-                                    className="field"
-                                    name="distance"
-                                    label="Distance from Place of Stay to School"
-                                />
+
+                                <br />
                                 <SelectPicker
                                     className="field"
                                     name="religion"
@@ -151,6 +158,13 @@ const StudentAdmissionForm = () => {
                                     name="gsDivisionNo"
                                     label="G.S Division No"
                                 />
+                                <TextField
+                                    style={{ width: '98%' }}
+                                    className="field"
+                                    name="formerSchool"
+                                    label="Former School"
+                                />
+                                <br />
                                 <Row>
                                     <Col md={12}>
                                         <p className="textArea">Admission Date</p>
@@ -164,12 +178,7 @@ const StudentAdmissionForm = () => {
                                         />
                                     </Col>
                                 </Row>
-                                <TextField
-                                    style={{ width: '98%' }}
-                                    className="field"
-                                    name="formerSchool"
-                                    label="Former School"
-                                />
+                                <br />
                                 <SelectPicker
                                     className="field"
                                     name="race"
@@ -225,9 +234,9 @@ const StudentAdmissionForm = () => {
                         </Row>
                     </FlexboxGrid>
                     <br></br>
-                    <FlexboxGrid justify="end">
+                    <FlexboxGrid justify="center">
                         <FlexboxGrid.Item componentClass={Col} colspan={24} md={6}>
-                            <Button appearance="primary" onClick={handleSubmit} text="Submit" />
+                            <Button appearance="primary" onClick={handleSubmit} text="Next" />
                         </FlexboxGrid.Item>
                     </FlexboxGrid>
                 </div>

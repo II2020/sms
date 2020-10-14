@@ -32,7 +32,7 @@ const model = Schema.Model({
     house: StringType().isRequired(IS_REQUIRED),
 });
 
-const ParentForm = () => {
+const ParentForm = (props) => {
     const [formValue, setFormValue] = useState({
         fatherName: '',
         fatherOccupation: '',
@@ -61,12 +61,16 @@ const ParentForm = () => {
     const handleSubmit = () => {
         if (!form.check()) {
             console.error('Form Error');
+            props.next()
             return;
+        }else {
+            props.next();
+            console.log(formValue, 'Form Value', formError);
         }
         console.log(formValue, 'Form Value', formError);
     };
     return (
-        <div>
+        <div className="bodyContent">
             <br></br>
             <Form
                 className="form"
@@ -216,9 +220,10 @@ const ParentForm = () => {
                         </Row>
                     </FlexboxGrid>
                     <br></br>
-                    <FlexboxGrid justify="end">
+                    <FlexboxGrid justify="center">
                         <FlexboxGrid.Item componentClass={Col} colspan={24} md={6}>
-                            <Button appearance="primary" onClick={handleSubmit} text="Submit" />
+                        <Button style={{ margin: '0 8px' }} onClick={() => props.prev()} text=" Previous"/>
+                            <Button appearance="primary" onClick={handleSubmit} text="Next" />
                         </FlexboxGrid.Item>
                     </FlexboxGrid>
                 </div>
