@@ -21,7 +21,7 @@ const HeaderComponent = (props) => {
                     <Dropdown.Item eventKey="2">View Admission</Dropdown.Item>
                 </Dropdown>
                 <Dropdown title="Promotion" menuStyle={{ width: '100%' }} eventKey="promotion">
-                    <NavLink to="/promotionType">
+                    <NavLink to="/promotionLayout">
                         <Dropdown.Item eventKey="3">Promotion</Dropdown.Item>
                     </NavLink>
                     <Dropdown.Item eventKey="4">Add Division</Dropdown.Item>

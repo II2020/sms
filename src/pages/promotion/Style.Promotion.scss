@@ -1,7 +1,5 @@
 .radioGroup {
-    border-radius: 10px;
-    box-shadow: 5px 5px #888888;
-    padding-top: 25px;
+    padding-top: 20px;
     padding-bottom: 25px;
 }
 
@@ -10,8 +8,20 @@
 }
 
 .flex-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
+    border: 2px solid #837e7c;
+    line-height: 0;
+    text-align: left;
+    margin-top: 1%;
+    margin-left: 35%;
+    width: 30%;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px #808080;
+}
+.border-text {
+    padding: 1px 5px;
+    margin: 0 20px;
+    background-color: #fafafa;
+    font-weight: bold;
+    border: 1px solid #837e7c;
+    border-radius: 10px;
 }
