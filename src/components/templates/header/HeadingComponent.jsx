@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar, Dropdown, Nav, Icon } from 'rsuite';
+import { Navbar} from 'rsuite';
 
 export default function HeadingComponent() {
     return (
