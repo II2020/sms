@@ -1,14 +1,29 @@
 .breadcrumb {
     display: flex;
     flex-direction: row;
-    // margin-right: 30px;
-    // justify-content: a;
-    // text-align: left;
     width: 99.6%;
+    justify-content: space-around;
 }
 .bodyContent {
-    background-color: azure;
-    width: 99.7%;
+    background-color: rgb(210, 216, 216);
+    width: 95%;
+    border-radius: 10px;
+
+    padding: 10px;
+    margin: auto;
+}
+.form {
+    padding: 5px;
+}
+.field {
+    width: 95%;
+}
+
+.textArea {
+    color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
 }
 .gradecardarea {
     display: 'flex';
@@ -16,4 +31,8 @@
     justify-content: 'space-evnly';
     width: '100%';
     padding: 5px;
+}
+.searchareaContent {
+    margin: auto;
+    width: 100%;
 }
